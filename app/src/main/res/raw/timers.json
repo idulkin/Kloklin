@@ -1,0 +1,16 @@
+{
+  "timers": [
+    {
+      "name": "Tabata",
+      "interval": 20,
+      "action": "Work",
+      "interval": 10,
+      "action": "Rest"
+    },
+    {
+      "name": "EMOM",
+      "interval": 60,
+      "action": "Work"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="com.idulkin.kloklin.KloklinActivity">
+
+    <!--The IDE lies, use android:showAsAction="always"-->
+    <item
+        android:id="@+id/action_list"
+        android:icon="@drawable/list_icon"
+        android:orderInCategory="0"
+        android:title="@string/action_list"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/action_clock"
+        android:icon="@drawable/clockface_icon"
+        android:orderInCategory="1"
+        android:title="@string/action_clock"
+        android:showAsAction="always" />
+    <item
+        android:id="@+id/action_settings"
+        android:icon="@drawable/settings_icon"
+        android:orderInCategory="2"
+        android:title="@string/action_settings"
+        android:showAsAction="always" />
+</menu>

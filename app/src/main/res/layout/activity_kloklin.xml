@@ -1,0 +1,33 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:name="com.idulkin.kloklin.KloklinActivity"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <Toolbar
+        android:id="@+id/kloklin_toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:background="@color/colorToolbar"
+        android:elevation="4dp"
+        android:gravity="top|center"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <ActionMenuView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="@dimen/button_margin"
+            android:layout_marginEnd="@dimen/button_margin"
+            android:id="@+id/action_menu">
+        </ActionMenuView>
+    </Toolbar>
+
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.idulkin.kloklin.KloklinActivityFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout="@layout/fragment_kloklin" />
+
+</RelativeLayout>

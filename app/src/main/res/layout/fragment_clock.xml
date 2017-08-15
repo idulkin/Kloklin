@@ -1,0 +1,100 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.idulkin.kloklin.fragments.ClockFragment">
+
+    <TextView
+        android:id="@+id/clock_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:text="@string/default_title"
+        android:elevation="2dp"
+        android:textAppearance="@style/title_text" />
+
+    <RelativeLayout
+        android:id="@+id/clock_face_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/clock_title"
+        android:layout_marginTop="@dimen/action_bar"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/clock_face"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/default_time"
+            android:elevation="2dp"
+            android:textAppearance="@style/clockface_text" />
+
+        <TextView
+            android:id="@+id/action_text"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/clock_face"
+            android:gravity="center"
+            android:text="@string/lorem_ipsum"
+            android:elevation="2dp"
+            android:textAppearance="@style/large_text" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/play_control_container"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_above="@id/bottom_container"
+        android:layout_margin="@dimen/button_margin">
+
+        <ImageButton
+            android:id="@+id/play_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:contentDescription="@string/play_button"
+            android:gravity="center"
+            android:elevation="2dp"
+            android:src="@drawable/big_play_button" />
+
+        <ImageButton
+            android:id="@+id/rewind_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_toStartOf="@id/play_button"
+            android:contentDescription="@string/skip_back"
+            android:gravity="center"
+            android:elevation="2dp"
+            android:src="@drawable/rewind_button" />
+
+        <ImageButton
+            android:id="@+id/fast_forward_button"
+            style="?android:attr/borderlessButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/button_margin"
+            android:layout_toEndOf="@id/play_button"
+            android:contentDescription="@string/skip_to_next"
+            android:gravity="center"
+            android:elevation="2dp"
+            android:src="@drawable/fast_forward_button" />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/bottom_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <View
+            android:id="@+id/the_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/activity_horizontal_margin" />
+    </RelativeLayout>
+</RelativeLayout>
