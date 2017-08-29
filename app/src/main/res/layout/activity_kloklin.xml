@@ -25,6 +25,7 @@
 
     <fragment
         android:id="@+id/fragment"
+        android:layout_below="@id/kloklin_toolbar"
         android:name="com.idulkin.kloklin.KloklinActivityFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

@@ -26,7 +26,7 @@ class ListFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         //Test values
-        val timer = Interval("Every Minute", arrayListOf(IntervalAction(60, "Work")))
+        val timer = Interval("Test Interval", arrayListOf(IntervalAction(10, "Test")))
         var i = 0
         while (i < 5) {
             timerArrayList.add(Program("Test", "Test Description", arrayListOf(timer, timer, timer, timer, timer)))

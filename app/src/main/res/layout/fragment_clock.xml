@@ -1,5 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clock_fragment"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -10,7 +11,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="60dp"
         android:text="@string/default_title"
         android:elevation="2dp"
         android:textAppearance="@style/title_text" />
@@ -20,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/clock_title"
-        android:layout_marginTop="@dimen/action_bar"
         android:orientation="vertical">
 
         <TextView
@@ -63,7 +64,7 @@
             android:src="@drawable/big_play_button" />
 
         <ImageButton
-            android:id="@+id/rewind_button"
+            android:id="@+id/skip_back_button"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,10 +73,10 @@
             android:contentDescription="@string/skip_back"
             android:gravity="center"
             android:elevation="2dp"
-            android:src="@drawable/rewind_button" />
+            android:src="@drawable/skip_back_button" />
 
         <ImageButton
-            android:id="@+id/fast_forward_button"
+            android:id="@+id/skip_forward_button"
             style="?android:attr/borderlessButtonStyle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -84,7 +85,7 @@
             android:contentDescription="@string/skip_to_next"
             android:gravity="center"
             android:elevation="2dp"
-            android:src="@drawable/fast_forward_button" />
+            android:src="@drawable/skip_forward_button" />
     </RelativeLayout>
 
     <RelativeLayout

@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.objects.snack
@@ -22,14 +23,16 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
         val descView = itemView.findViewById<TextView>(R.id.program_desc)
         val overflowView = itemView.findViewById<ImageView>(R.id.program_overflow)
 
+        /**
+         * Bind a holder. Sets click listeners to launch clock and open overflow menu
+         */
         fun bind(program: Program) {
             nameView.text = program.name
             descView.text = program.desc
 
             itemView.setOnClickListener {
-                //May need to set this on the text container to not block overflow clicks
-                //TODO: Open the clock fragment with the selected program
-                itemView.snack("Clicked on a list item")
+                val activity = itemView.context as KloklinActivity
+                activity.openClock(program)
             }
 
             //Overflow menu

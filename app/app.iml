@@ -29,11 +29,16 @@
           <option name="languageVersion" value="1.1" />
           <option name="apiVersion" value="1.1" />
           <option name="pluginOptions">
-            <array />
+            <array>
+              <option value="plugin:org.jetbrains.kotlin.android:experimental=false" />
+              <option value="plugin:org.jetbrains.kotlin.android:enabled=true" />
+              <option value="plugin:org.jetbrains.kotlin.android:defaultCacheImplementation=hashMap" />
+            </array>
           </option>
           <option name="pluginClasspaths">
             <array />
           </option>
+          <option name="version" value="true" />
         </compilerArguments>
       </configuration>
     </facet>
@@ -120,6 +125,7 @@
     <orderEntry type="library" name="support-core-ui-26.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="runner-0.5" level="project" />
     <orderEntry type="library" name="support-media-compat-26.0.1" level="project" />
+    <orderEntry type="library" name="kotlin-stdlib-1.1.4-2" level="project" />
     <orderEntry type="library" scope="TEST" name="espresso-idling-resource-2.2.2" level="project" />
     <orderEntry type="library" name="constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="hamcrest-library-1.3" level="project" />
@@ -127,7 +133,7 @@
     <orderEntry type="library" name="support-vector-drawable-26.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="hamcrest-integration-1.3" level="project" />
     <orderEntry type="library" name="support-core-utils-26.0.1" level="project" />
-    <orderEntry type="library" name="kotlin-stdlib-jre7-1.1.3-2" level="project" />
+    <orderEntry type="library" name="kotlin-stdlib-jre7-1.1.4-2" level="project" />
     <orderEntry type="library" name="javax.annotation-10.0-b28" level="project" />
     <orderEntry type="library" name="transition-26.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="jsr305-2.0.1" level="project" />
@@ -147,7 +153,6 @@
     <orderEntry type="library" name="appcompat-v7-26.0.1" level="project" />
     <orderEntry type="library" scope="TEST" name="hamcrest-core-1.3" level="project" />
     <orderEntry type="library" scope="TEST" name="junit-4.12" level="project" />
-    <orderEntry type="library" name="kotlin-stdlib-1.1.3-2" level="project" />
     <orderEntry type="library" name="dagger-2.4" level="project" />
     <orderEntry type="library" name="design-26.0.1" level="project" />
   </component>

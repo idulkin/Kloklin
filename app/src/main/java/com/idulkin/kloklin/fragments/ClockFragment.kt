@@ -2,6 +2,7 @@ package com.idulkin.kloklin.fragments
 
 import android.content.Context
 import android.content.res.Configuration
+import android.media.RingtoneManager
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.support.v4.app.Fragment
@@ -13,79 +14,121 @@ import android.widget.TextView
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.objects.IntervalAction
 import com.idulkin.kloklin.objects.Interval
+import com.idulkin.kloklin.objects.Program
 
 
 /**
- * A countdown timer
+ * The face of the interval timer
  */
 class ClockFragment : Fragment() {
 
-    //TODO: Replace this timer with one from an intent
-    var timer = Interval("Every Minute", arrayListOf(IntervalAction(60, "Work")))
+    private var interval = Interval("One Minute", arrayListOf(IntervalAction(60, "Go")))
+    var program = Program("Minute", "Placeholder Minute Timer", arrayListOf(interval))
+    var time = 0 //Current time remaining on the clock
+    var pos = 0 //Current position in the program
+    var rootView: View? = null
+
+    var countDown = CountDown(rootView?.findViewById(R.id.clock_face), time.toLong() * 1000, 1000, this::nextInterval)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
         val view = inflater?.inflate(R.layout.fragment_clock, container, false)
+        rootView = view
 
-        val clockface = view?.findViewById<TextView>(R.id.clock_face)
-        val title = view?.findViewById<TextView>(R.id.clock_title)
-        val action = view?.findViewById<TextView>(R.id.action_text)
-        val playbutton = view?.findViewById<ImageButton>(R.id.play_button)
+        setClock()
+        setPlayButton(false)
 
-        //Display the title and bottom margin only in portrait orientation
-        if(resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
-            title?.text = timer.name
-        } else {
-            title?.visibility = View.GONE
-            view?.findViewById<View>(R.id.the_bottom)?.visibility = View.GONE
+        //Skip forward button
+        rootView?.findViewById<ImageButton>(R.id.skip_forward_button)?.setOnClickListener {
+            nextInterval()
         }
 
-        action?.text = timer.sets[0].action
-
-        if(!activity.isChangingConfigurations) {
-            //Set the start time and create a countdown object
-            var time = timer.sets[0].duration
-            clockface?.text = String.format("%02d:%02d", time / 60, time % 60)
-            var countDown = CountDown(clockface, time.toLong() * 1000, 1000)
-
-            //Play button control
-            var playing = false
-            playbutton?.setOnClickListener {
-                if (!playing) {
-                    playbutton.setImageDrawable(resources.getDrawable(R.drawable.big_pause_button, resources.newTheme()))
-                    countDown = CountDown(clockface, time.toLong() * 1000, 1000)
-                    countDown.start()
-                    playing = true
-                } else {
-                    playbutton.setImageDrawable(resources.getDrawable(R.drawable.big_play_button, resources.newTheme()))
-                    countDown.cancel()
-                    time = countDown.secondsRemaining
-                    playing = false
-                }
-            }
+        //Skip backward button
+        rootView?.findViewById<ImageButton>(R.id.skip_back_button)?.setOnClickListener {
+            pos--
+            nextInterval()
         }
 
         return view
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
+    //Start the next interval in the program
+    fun nextInterval(): Boolean {
+        pos++
+        if (pos > program.intervals.size) {
+            //end of the program
+            pos--
+            return false
+        } else {
+            interval = program.intervals[pos]
+
+            setClock()
+            setPlayButton(true)
+
+            val clockface = rootView?.findViewById<TextView>(R.id.clock_face)
+            countDown = CountDown(clockface, time.toLong() * 1000, 1000, this::nextInterval)
+            countDown.start()
+
+            return true
+        }
     }
 
-    override fun onDetach() {
-        super.onDetach()
+    //Sets the text for the clock, title, and description
+    fun setClock() {
+        val clockface = rootView?.findViewById<TextView>(R.id.clock_face)
+        val title = rootView?.findViewById<TextView>(R.id.clock_title)
+        val action = rootView?.findViewById<TextView>(R.id.action_text)
+
+        time = interval.sets[0].duration
+        clockface?.text = String.format("%02d:%02d", time / 60, time % 60)
+        //Display the title only in portrait orientation
+        if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            title?.text = interval.name
+        } else {
+            title?.visibility = View.GONE
+            view?.findViewById<View>(R.id.the_bottom)?.visibility = View.GONE
+        }
+
+        action?.text = interval.sets[0].action
     }
+
+    // Pause/Play control for the play button
+    fun setPlayButton(isPlaying: Boolean) {
+        val playbutton = rootView?.findViewById<ImageButton>(R.id.play_button)
+        val clockface = rootView?.findViewById<TextView>(R.id.clock_face)
+        var playing = isPlaying
+        playbutton?.setOnClickListener {
+            if (!playing) {
+                playbutton.setImageDrawable(resources.getDrawable(R.drawable.big_pause_button, resources.newTheme()))
+                countDown = CountDown(clockface, time.toLong() * 1000, 1000, this::nextInterval)
+                countDown.start()
+                playing = true
+            } else {
+                playbutton.setImageDrawable(resources.getDrawable(R.drawable.big_play_button, resources.newTheme()))
+                countDown.cancel()
+                time = countDown.secondsRemaining
+                playing = false
+            }
+        }
+    }
+
+//    override fun onAttach(context: Context?) {
+//        super.onAttach(context)
+//    }
+//
+//    override fun onDetach() {
+//        super.onDetach()
+//    }
 
     /**
      * Inner class to track remaining time
      */
-    class CountDown(val clockface: TextView?, millisInFuture: Long, countDownInterval: Long) : CountDownTimer(millisInFuture, countDownInterval) {
+    class CountDown(val clockface: TextView?, millisInFuture: Long, countDownInterval: Long, val nextInterval: () -> Boolean) : CountDownTimer(millisInFuture, countDownInterval) {
         var secondsRemaining = millisInFuture.toInt() / 1000
 
         override fun onTick(millisUntilFinished: Long) {
@@ -96,7 +139,12 @@ class ClockFragment : Fragment() {
         }
 
         override fun onFinish() {
-            //TODO: Beep
+            //Beep
+            val beeper = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+            RingtoneManager.getRingtone(clockface?.context, beeper).play()
+
+            //Start the next interval
+            nextInterval()
         }
     }
 
