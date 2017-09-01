@@ -1,16 +1,14 @@
 package com.idulkin.kloklin.fragments
+import kotlinx.android.synthetic.main.fragment_program_list.*
 
-import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.IntervalAction
 import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
@@ -20,16 +18,16 @@ import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
  */
 class ListFragment : Fragment() {
 
-    val timerArrayList = ArrayList<Program>()
+    val programs = ArrayList<Program>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         //Test values
-        val timer = Interval("Test Interval", arrayListOf(IntervalAction(10, "Test")))
+        val timer = IntervalAction(5, "Test")
         var i = 0
         while (i < 5) {
-            timerArrayList.add(Program("Test", "Test Description", arrayListOf(timer, timer, timer, timer, timer)))
+            programs.add(Program("Test", "Test Description", arrayListOf(timer, timer, timer, timer, timer)))
             i++
         }
         //TODO:Replace previous with real list
@@ -37,32 +35,24 @@ class ListFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        val view = inflater?.inflate(R.layout.fragment_program_list, container, false) as View
-
-        //Set the RecyclerView
-        val programListView = view.findViewById<RecyclerView>(R.id.program_recycler)
-        programListView.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        programListView.adapter = ProgramRecyclerAdapter(timerArrayList)
-        programListView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-
-        return view
+        return inflater?.inflate(R.layout.fragment_program_list, container, false) as View
     }
 
-    override fun onAttach(context: Context?) {
-        super.onAttach(context)
-   }
+    override fun onStart() {
+        super.onStart()
 
-    override fun onDetach() {
-        super.onDetach()
+        //Set the RecyclerView
+        program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+        program_recycler.adapter = ProgramRecyclerAdapter(programs)
+        program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     /**
      * Create an ArrayList from the database
      */
 
-    fun makeTimerArrayList(){
-        timerArrayList.clear()
+    fun makeProgramList(){
+        programs.clear()
     }
 }
 

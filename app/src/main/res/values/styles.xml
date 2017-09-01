@@ -34,7 +34,7 @@
     </style>
 
     <style name="title_text">
-        <item name="android:textSize">30sp</item>
+        <item name="android:textSize">40sp</item>
         <item name="android:textAlignment">center</item>
     </style>
 

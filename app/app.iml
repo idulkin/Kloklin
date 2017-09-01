@@ -114,7 +114,6 @@
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/shaders" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/splits-support" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/symbols" />
-      <excludeFolder url="file://$MODULE_DIR$/build/intermediates/tmp" />
       <excludeFolder url="file://$MODULE_DIR$/build/intermediates/transforms" />
       <excludeFolder url="file://$MODULE_DIR$/build/kotlin" />
       <excludeFolder url="file://$MODULE_DIR$/build/outputs" />
@@ -127,6 +126,7 @@
     <orderEntry type="library" name="support-media-compat-26.0.1" level="project" />
     <orderEntry type="library" name="kotlin-stdlib-1.1.4-2" level="project" />
     <orderEntry type="library" scope="TEST" name="espresso-idling-resource-2.2.2" level="project" />
+    <orderEntry type="library" name="gson-2.8.1" level="project" />
     <orderEntry type="library" name="constraint-layout-1.0.2" level="project" />
     <orderEntry type="library" scope="TEST" name="hamcrest-library-1.3" level="project" />
     <orderEntry type="library" name="recyclerview-v7-26.0.1" level="project" />

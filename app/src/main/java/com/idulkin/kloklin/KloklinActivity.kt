@@ -5,40 +5,40 @@ import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.ActionMenuView
-import android.widget.Toast
-import com.idulkin.kloklin.fragments.ClockFragment
-import com.idulkin.kloklin.fragments.SettingsFragment
+import com.idulkin.kloklin.fragments.KlokFragment
 import com.idulkin.kloklin.fragments.ListFragment
+import com.idulkin.kloklin.fragments.SettingsFragment
 import com.idulkin.kloklin.objects.Program
+import kotlinx.android.synthetic.main.activity_kloklin.*
 
 class KloklinActivity : FragmentActivity() {
 
-    //Private global fragments to prevent instantiating new fragments for the manager
-    private val clockFragment = ClockFragment()
+    private var clockFragment = KlokFragment() //The current clock
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_kloklin)
-        setActionBar(findViewById(R.id.kloklin_toolbar))
-        findViewById<ActionMenuView>(R.id.action_menu).setOnMenuItemClickListener { menuItem ->
+        setActionBar(kloklin_toolbar)
+        action_menu.setOnMenuItemClickListener { menuItem ->
             onOptionsItemSelected(menuItem)
         }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         // Inflate the menu; this adds items to the action bar if it is present.
-        menuInflater.inflate(R.menu.menu_kloklin, findViewById<ActionMenuView>(R.id.action_menu).menu)
+        menuInflater.inflate(R.menu.menu_kloklin, action_menu.menu)
         return true
     }
 
+    /**
+     * Action bar icons
+     */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        // Handle action bar item clicks here.
-        when (item.itemId) {
-            R.id.action_list -> return openFragment(ListFragment())
-            R.id.action_settings -> return openFragment(SettingsFragment())
-            R.id.action_clock -> return openFragment(clockFragment)
-            else -> return super.onOptionsItemSelected(item)
+        return when (item.itemId) {
+            R.id.action_list -> openFragment(ListFragment())
+            R.id.action_settings -> openFragment(SettingsFragment())
+            R.id.action_clock -> openFragment(clockFragment)
+            else -> super.onOptionsItemSelected(item)
         }
     }
 
@@ -57,10 +57,9 @@ class KloklinActivity : FragmentActivity() {
      * Open the clock fragment with the provided program
      */
     fun openClock(program: Program) {
-        openFragment(clockFragment)
+        clockFragment = KlokFragment()
         clockFragment.program = program
-        clockFragment.setClock()
-        clockFragment.setPlayButton(false)
+        openFragment(clockFragment)
     }
 
     private fun openFragment(fragment: Fragment): Boolean {

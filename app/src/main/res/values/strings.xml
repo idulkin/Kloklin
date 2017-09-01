@@ -19,4 +19,6 @@
     <string name="edit">Edit</string>
     <string name="move">Move</string>
     <string name="delete">Delete</string>
+    <string name="finish">FINISH</string>
+    <string name="endOfTime">00:00</string>
 </resources>

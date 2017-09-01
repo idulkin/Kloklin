@@ -4,15 +4,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.idulkin.kloklin.fragments.ClockFragment">
+    tools:context="com.idulkin.kloklin.fragments.KlokFragment">
 
     <TextView
         android:id="@+id/clock_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="60dp"
-        android:layout_marginBottom="60dp"
+        android:layout_marginTop="80dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/default_title"
         android:elevation="2dp"
         android:textAppearance="@style/title_text" />
@@ -94,7 +94,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
         <View
-            android:id="@+id/the_bottom"
+            android:id="@+id/bottom_margin"
             android:layout_width="match_parent"
             android:layout_height="@dimen/activity_horizontal_margin" />
     </RelativeLayout>
