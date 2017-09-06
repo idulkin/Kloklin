@@ -29,6 +29,9 @@ class KlokFragment : Fragment() {
     var countDown = CountDown(TimeUnit.SECONDS.toMillis(time), 1000)
     var playing = false //Is the countdown running?
 
+    fun recreateFragment(){
+    }
+
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
         outState?.putLong("Time", time)
@@ -132,6 +135,18 @@ class KlokFragment : Fragment() {
         countDown.cancel()
         play_button.setImageDrawable(resources.getDrawable(R.drawable.big_play_button, resources.newTheme()))
         playing = false
+    }
+
+    fun pauseClock() {
+        countDown.cancel()
+        play_button.setImageDrawable(resources.getDrawable(R.drawable.big_play_button, resources.newTheme()))
+        playing = false
+    }
+
+    fun startClock() {
+        countDown.start()
+        play_button.setImageDrawable(resources.getDrawable(R.drawable.big_pause_button, resources.newTheme()))
+        playing = true
     }
 
     /**
