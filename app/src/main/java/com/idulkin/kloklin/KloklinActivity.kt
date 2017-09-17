@@ -1,29 +1,22 @@
 package com.idulkin.kloklin
 
-import android.app.KeyguardManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
-import android.support.v4.view.PagerAdapter
-import android.support.v4.view.ViewPager
-import android.view.LayoutInflater
 import android.view.Menu
 import android.view.MenuItem
-import com.idulkin.kloklin.fragments.EditFragment
-import com.idulkin.kloklin.fragments.KlokFragment
-import com.idulkin.kloklin.fragments.ListFragment
-import com.idulkin.kloklin.fragments.SettingsFragment
+import com.idulkin.kloklin.data.ClockViewModel
+import com.idulkin.kloklin.fragments.*
 import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.activity_kloklin.*
-import kotlinx.android.synthetic.main.fragment_clock.*
-import kotlinx.android.synthetic.main.fragment_clock.*
 import java.util.*
 
 class KloklinActivity : FragmentActivity() {
 
-    private var clockFragment = KlokFragment() //The current clock
+    var clockFragment = ClockFragment() //The current clock
+
     private val backStack = Stack<Int>() //Tracks previous fragments for the back button
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,20 +65,19 @@ class KloklinActivity : FragmentActivity() {
      * Open the clock fragment with the provided program
      */
     fun openClock(program: Program) {
-        //Replace the current clock fragment
-        clockFragment = KlokFragment()
-        clockFragment.program = program
-        val transaction = supportFragmentManager.beginTransaction()
-        transaction.detach(clockFragment)
-        transaction.attach(clockFragment)
-        transaction.commit()
 
-        pager.adapter.notifyDataSetChanged()
+        //Replace the current clock fragment
+        clockFragment.model.newProgram(program)
+
         pager.currentItem = PAGE.CLOCK.position
         backStack.push(pager.currentItem)
     }
 
+    /**
+     * Adapter class for the view pager
+     */
     inner class FragmentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
+
         override fun getCount() = 4
 
         override fun getItem(position: Int): Fragment {
@@ -96,6 +88,9 @@ class KloklinActivity : FragmentActivity() {
                 3 -> SettingsFragment()
                 else -> clockFragment
             }
+        }
+
+        fun replaceClock(newProgram: Program) {
         }
     }
 

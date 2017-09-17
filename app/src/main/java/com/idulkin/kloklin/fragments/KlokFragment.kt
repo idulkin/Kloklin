@@ -29,9 +29,6 @@ class KlokFragment : Fragment() {
     var countDown = CountDown(TimeUnit.SECONDS.toMillis(time), 1000)
     var playing = false //Is the countdown running?
 
-    fun recreateFragment(){
-    }
-
     override fun onSaveInstanceState(outState: Bundle?) {
         super.onSaveInstanceState(outState)
         outState?.putLong("Time", time)
