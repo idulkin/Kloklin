@@ -7,17 +7,16 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.Menu
 import android.view.MenuItem
-import com.idulkin.kloklin.data.ClockViewModel
+import com.idulkin.kloklin.models.ClockViewModel
 import com.idulkin.kloklin.fragments.*
+import com.idulkin.kloklin.models.ActivityViewModel
 import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.activity_kloklin.*
 import java.util.*
 
 class KloklinActivity : FragmentActivity() {
 
-    var clockFragment = ClockFragment() //The current clock
-
-    private val backStack = Stack<Int>() //Tracks previous fragments for the back button
+    var model: ActivityViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,6 +26,7 @@ class KloklinActivity : FragmentActivity() {
             onOptionsItemSelected(menuItem)
         }
 
+        model = ActivityViewModel.create(this)
         pager.adapter = FragmentAdapter(supportFragmentManager)
     }
 
@@ -40,13 +40,7 @@ class KloklinActivity : FragmentActivity() {
      * Action bar icons
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        pager.currentItem = when (item.itemId) {
-            R.id.action_list -> PAGE.LIST.position
-            R.id.action_settings -> PAGE.SETTINGS.position
-            R.id.action_clock -> PAGE.CLOCK.position
-            else -> PAGE.CLOCK.position
-        }
-        backStack.push(pager.currentItem)
+        pager.currentItem = model?.onMenuItemClicked(item, pager.currentItem) ?: pager.currentItem
         return true
     }
 
@@ -54,10 +48,11 @@ class KloklinActivity : FragmentActivity() {
      * Back button opens previous fragment
      */
     override fun onBackPressed() {
-        if (backStack.empty()) {
+        val prev = model?.previousPage()
+        if (prev!! < 0) {
             super.onBackPressed()
         } else {
-            pager.currentItem = backStack.pop()
+            pager.currentItem = prev
         }
     }
 
@@ -65,12 +60,8 @@ class KloklinActivity : FragmentActivity() {
      * Open the clock fragment with the provided program
      */
     fun openClock(program: Program) {
-
         //Replace the current clock fragment
-        clockFragment.model.newProgram(program)
-
-        pager.currentItem = PAGE.CLOCK.position
-        backStack.push(pager.currentItem)
+        pager.currentItem = model?.startNewProgram(program, pager.currentItem) ?: pager.currentItem
     }
 
     /**
@@ -82,23 +73,13 @@ class KloklinActivity : FragmentActivity() {
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> EditFragment()
-                1 -> ListFragment()
-                2 -> clockFragment
-                3 -> SettingsFragment()
-                else -> clockFragment
+                0 -> model?.editFragment!!
+                1 -> model?.listFragment!!
+                2 -> model?.clockFragment!!
+                3 -> model?.settingsFragment!!
+                else -> model?.clockFragment!!
             }
         }
-
-        fun replaceClock(newProgram: Program) {
-        }
-    }
-
-    enum class PAGE(val position: Int) {
-        EDIT(0),
-        LIST(1),
-        CLOCK(2),
-        SETTINGS(3)
     }
 }
 

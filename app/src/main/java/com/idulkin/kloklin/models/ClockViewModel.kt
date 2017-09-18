@@ -1,13 +1,12 @@
-package com.idulkin.kloklin.data
+package com.idulkin.kloklin.models
 
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
-import android.media.RingtoneManager
+import android.arch.lifecycle.ViewModelProviders
 import android.os.CountDownTimer
-import com.idulkin.kloklin.R
+import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.objects.IntervalAction
 import com.idulkin.kloklin.objects.Program
-import javax.inject.Inject
 
 
 /**
@@ -24,29 +23,27 @@ class ClockViewModel : ViewModel() {
     var description: MutableLiveData<String> = MutableLiveData() //Current interval text
     var playing: MutableLiveData<Boolean> = MutableLiveData() //Is the countdown running?
 
-    var countDown = CountDown(0,1) //Initialize countdown at 0 seconds
+    var countDown = CountDown(0, 1) //Initialize countdown at 0 seconds
     var position = 0 //Current interval in program
 
     fun init(program: Program?) {
         this.program = program ?: this.program
     }
 
-    //Start a new program
     fun newProgram(newProgram: Program?) {
-        program = newProgram ?: program
+        init(newProgram)
+
         countDown.cancel()
         position = 0
-
         playing.value = false
         time.value = program.intervals[position].seconds
         title.value = program.name
         description.value = program.intervals[position].action
-
         countDown = CountDown(time.value!! * 1000, 1000)
     }
 
     fun startInterval() {
-          //Keep the position in bounds, and don't start playing past the end of the list
+        //Keep the position in bounds, and don't start playing past the end of the list
         if (position >= program.intervals.count()) {
             position = program.intervals.count() - 1
         } else {
@@ -78,6 +75,32 @@ class ClockViewModel : ViewModel() {
         }
     }
 
+    fun onSkipForwardClicked() {
+        position++
+        startInterval()
+    }
+
+    fun onSkipBackClicked() {
+        val elapsedTime = time.value
+        if (elapsedTime!! < program.intervals[position].seconds - 2) {
+            //More than 2 seconds into the timer, reset current interval
+            startInterval()
+        } else {
+            //Less than 2 seconds into the timer, skip to previous interval
+            position--
+            startInterval()
+        }
+    }
+
+    /**
+     * Companion object to instantiate a persistent model
+     */
+    companion object {
+        fun create(fragment: ClockFragment): ClockViewModel {
+            return ViewModelProviders.of(fragment).get(ClockViewModel::class.java)
+        }
+    }
+
     /**
      * Inner class to track the countdown
      */
@@ -88,14 +111,11 @@ class ClockViewModel : ViewModel() {
         }
 
         override fun onFinish() {
-//            val beeper = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-//            RingtoneManager.getRingtone(context, beeper).play()
-
             position++
             if (position == program.intervals.count()) {
                 //End of the last interval. Set the play button to restart the program
-//                finishProgram()
                 description.value = "FINISH"
+                playing.value = false
             }
 
             startInterval()
