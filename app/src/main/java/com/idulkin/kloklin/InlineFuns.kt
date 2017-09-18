@@ -1,4 +1,4 @@
-package com.idulkin.kloklin.objects
+package com.idulkin.kloklin
 
 import android.support.design.widget.Snackbar
 import android.view.View

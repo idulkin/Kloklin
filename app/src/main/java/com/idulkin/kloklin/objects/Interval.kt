@@ -3,8 +3,7 @@ package com.idulkin.kloklin.objects
 /**
  * Created by igor.dulkin on 8/1/17.
  *
- * A class for different interval intervals
- * @param name: what the timer is called
- * @param sets: the list of time intervals
+ * @param duration is the time in seconds of this interval
+ * @param action is what the user should be doing during this interval
  */
-class Interval(val name: String, val sets: ArrayList<IntervalAction>)
+data class Interval(val seconds: Long, val action: String)

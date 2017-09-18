@@ -5,7 +5,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.os.CountDownTimer
 import com.idulkin.kloklin.fragments.ClockFragment
-import com.idulkin.kloklin.objects.IntervalAction
+import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 
 
@@ -16,7 +16,7 @@ import com.idulkin.kloklin.objects.Program
  */
 class ClockViewModel : ViewModel() {
 
-    var program = Program("Minute", "Placeholder Minute Timer", arrayListOf(IntervalAction(60, "")))
+    var program = Program("Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
 
     var time: MutableLiveData<Long> = MutableLiveData() //Time remaining in seconds
     var title: MutableLiveData<String> = MutableLiveData() //Program name

@@ -9,7 +9,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.objects.IntervalAction
+import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 
@@ -24,8 +24,8 @@ class ListFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         //Test values
-        programs.add(Program("One Minute", "Placeholder Minute Timer", arrayListOf(IntervalAction(60, ""))))
-        val timer = IntervalAction(5, "Test")
+        programs.add(Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, ""))))
+        val timer = Interval(5, "Test")
         var i = 0
         while (i < 5) {
             programs.add(Program("Test", "Test Description", arrayListOf(timer, timer, timer, timer, timer)))

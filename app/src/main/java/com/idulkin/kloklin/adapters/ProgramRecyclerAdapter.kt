@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
-import android.widget.Toast
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.objects.Program
-import com.idulkin.kloklin.objects.snack
+import com.idulkin.kloklin.snack
 
 /**
  * Created by igor.dulkin on 8/1/17.
