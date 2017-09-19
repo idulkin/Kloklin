@@ -8,7 +8,7 @@ import android.view.MotionEvent
 /**
  * Created by igor.dulkin on 9/18/17.
  *
- * Extend ViewPager to disabled swipes
+ * Extend ViewPager to disable swipes
  */
 class CustomViewPager(context: Context, attrs: AttributeSet): ViewPager(context, attrs) {
 

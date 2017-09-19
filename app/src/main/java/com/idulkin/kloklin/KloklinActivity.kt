@@ -7,12 +7,9 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.Menu
 import android.view.MenuItem
-import com.idulkin.kloklin.models.ClockViewModel
-import com.idulkin.kloklin.fragments.*
 import com.idulkin.kloklin.models.ActivityViewModel
 import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.activity_kloklin.*
-import java.util.*
 
 class KloklinActivity : FragmentActivity() {
 

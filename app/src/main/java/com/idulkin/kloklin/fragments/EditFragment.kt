@@ -12,7 +12,7 @@ import com.idulkin.kloklin.R
 import com.idulkin.kloklin.objects.Interval
 
 /**
- * Fragment for editting a program. A program is an arraylist of intervals,
+ * Fragment for editing a program. A program is an arraylist of intervals,
  * and this shows a recyclerview of that array list, with an add button as
  * the last element.
  */
