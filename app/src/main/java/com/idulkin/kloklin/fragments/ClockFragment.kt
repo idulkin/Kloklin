@@ -22,7 +22,6 @@ import com.idulkin.kloklin.objects.Program
  */
 class ClockFragment : Fragment() {
 
-//    var model = ClockViewModel()
     var model: ClockViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {

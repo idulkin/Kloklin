@@ -1,5 +1,4 @@
 package com.idulkin.kloklin.fragments
-import kotlinx.android.synthetic.main.fragment_program_list.*
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -9,29 +8,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.objects.Interval
-import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
+import com.idulkin.kloklin.models.ListViewModel
+import kotlinx.android.synthetic.main.fragment_program_list.*
 
 /**
  * Display a list of programs, with a quick timer button at the top
  */
 class ListFragment : Fragment() {
 
-    val programs = ArrayList<Program>()
+    var model: ListViewModel? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Test values
-        programs.add(Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, ""))))
-        val timer = Interval(5, "Test")
-        var i = 0
-        while (i < 5) {
-            programs.add(Program("Test", "Test Description", arrayListOf(timer, timer, timer, timer, timer)))
-            i++
-        }
-        //TODO:Replace previous with real list
+        model = ListViewModel.create(this)
+        model?.init()
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
@@ -44,16 +36,8 @@ class ListFragment : Fragment() {
 
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(programs)
+        program_recycler.adapter = ProgramRecyclerAdapter(model?.programs!!)
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
-    }
-
-    /**
-     * Create an ArrayList from the database
-     */
-
-    fun makeProgramList(){
-        programs.clear()
     }
 }
 

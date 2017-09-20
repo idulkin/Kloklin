@@ -114,8 +114,8 @@ class ClockViewModel : ViewModel() {
             position++
             if (position == program.intervals.count()) {
                 //End of the last interval. Set the play button to restart the program
-                description.value = "FINISH"
                 playing.value = false
+                description.value = "FINISH"
             }
 
             startInterval()

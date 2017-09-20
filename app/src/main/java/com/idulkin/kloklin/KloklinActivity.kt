@@ -1,5 +1,6 @@
 package com.idulkin.kloklin
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -25,6 +26,12 @@ class KloklinActivity : FragmentActivity() {
 
         model = ActivityViewModel.create(this)
         pager.adapter = FragmentAdapter(supportFragmentManager)
+
+        model?.page?.observe(this, Observer<Int> { page ->
+            if (page != null) {
+                pager.currentItem = page
+            }
+        })
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -37,19 +44,16 @@ class KloklinActivity : FragmentActivity() {
      * Action bar icons
      */
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        pager.currentItem = model?.onMenuItemClicked(item, pager.currentItem) ?: pager.currentItem
+        model?.onMenuItemClicked(item)
         return true
     }
 
     /**
-     * Back button opens previous fragment
+     * Back button opens previous fragment, or closes the app if there isn't one
      */
     override fun onBackPressed() {
-        val prev = model?.previousPage()
-        if (prev!! < 0) {
+        if (model?.previousPage() == false) {
             super.onBackPressed()
-        } else {
-            pager.currentItem = prev
         }
     }
 
@@ -58,7 +62,7 @@ class KloklinActivity : FragmentActivity() {
      */
     fun openClock(program: Program) {
         //Replace the current clock fragment
-        pager.currentItem = model?.startNewProgram(program, pager.currentItem) ?: pager.currentItem
+        model?.startNewProgram(program)
     }
 
     /**
@@ -66,15 +70,15 @@ class KloklinActivity : FragmentActivity() {
      */
     inner class FragmentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-        override fun getCount() = 4
+        override fun getCount() = 3
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> model?.editFragment!!
-                1 -> model?.listFragment!!
-                2 -> model?.clockFragment!!
-                3 -> model?.settingsFragment!!
-                else -> model?.clockFragment!!
+                -1 -> model?.editFragment!! //May need to take this out of the viewpager
+                0 -> model?.listFragment!!
+                1 -> model?.clockFragment!!
+                2 -> model?.settingsFragment!!
+                else -> model?.editFragment!!
             }
         }
     }

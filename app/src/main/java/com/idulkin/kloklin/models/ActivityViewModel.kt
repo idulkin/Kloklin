@@ -1,5 +1,6 @@
 package com.idulkin.kloklin.models
 
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.view.MenuItem
@@ -19,12 +20,13 @@ class ActivityViewModel : ViewModel() {
 
      // Enum to track page numbers for the ViewPager
     enum class PAGE(val position: Int) {
-        EDIT(0),
-        LIST(1),
-        CLOCK(2),
-        SETTINGS(3)
+        EDIT(-1),
+        LIST(0),
+        CLOCK(1),
+        SETTINGS(2)
     }
 
+    var page: MutableLiveData<Int> = MutableLiveData()
 
     val clockFragment = ClockFragment()
     val listFragment = ListFragment()
@@ -33,9 +35,9 @@ class ActivityViewModel : ViewModel() {
 
     val backStack = Stack<Int>() //Tracks previous fragments for the back button
 
-    fun onMenuItemClicked(item: MenuItem, currentPage: Int): Int {
-        backStack.push(currentPage)
-        return when (item.itemId) {
+    fun onMenuItemClicked(item: MenuItem) {
+        backStack.push(page.value)
+        page.value = when (item.itemId) {
             R.id.action_list -> PAGE.LIST.position
             R.id.action_clock -> PAGE.CLOCK.position
             R.id.action_settings -> PAGE.SETTINGS.position
@@ -43,15 +45,20 @@ class ActivityViewModel : ViewModel() {
         }
     }
 
-    fun previousPage(): Int {
-        return if (backStack.empty()) -1
-        else backStack.pop()
+    //Opens the previous page, or returns false if there isn't one
+    fun previousPage(): Boolean {
+        return if (backStack.empty()) {
+            false
+        } else {
+            page.value = backStack.pop()
+            true
+        }
     }
 
-    fun startNewProgram(program: Program, currentPage: Int): Int {
+    fun startNewProgram(program: Program) {
         clockFragment.model?.newProgram(program)
-        backStack.push(currentPage)
-        return PAGE.CLOCK.position
+        backStack.push(page.value)
+        page.value = PAGE.CLOCK.position
     }
 
    /**
