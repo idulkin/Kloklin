@@ -16,7 +16,7 @@ import com.idulkin.kloklin.objects.Program
  */
 class ClockViewModel : ViewModel() {
 
-    var program = Program("Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
+    var program = Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
 
     var time: MutableLiveData<Long> = MutableLiveData() //Time remaining in seconds
     var title: MutableLiveData<String> = MutableLiveData() //Program name

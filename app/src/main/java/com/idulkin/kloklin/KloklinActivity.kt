@@ -8,6 +8,7 @@ import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.Menu
 import android.view.MenuItem
+import com.google.gson.Gson
 import com.idulkin.kloklin.models.ActivityViewModel
 import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.activity_kloklin.*
@@ -26,6 +27,11 @@ class KloklinActivity : FragmentActivity() {
 
         model = ActivityViewModel.create(this)
         pager.adapter = FragmentAdapter(supportFragmentManager)
+
+        //On app launch, start pager on list fragment
+        if(savedInstanceState == null) {
+            pager.currentItem = ActivityViewModel.PAGE.LIST.position
+        }
 
         model?.page?.observe(this, Observer<Int> { page ->
             if (page != null) {
@@ -70,15 +76,15 @@ class KloklinActivity : FragmentActivity() {
      */
     inner class FragmentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
-        override fun getCount() = 3
+        override fun getCount() = 4
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                -1 -> model?.editFragment!! //May need to take this out of the viewpager
-                0 -> model?.listFragment!!
-                1 -> model?.clockFragment!!
-                2 -> model?.settingsFragment!!
-                else -> model?.editFragment!!
+                0 -> model?.editFragment!! //May need to take this out of the viewpager
+                1 -> model?.listFragment!!
+                2 -> model?.clockFragment!!
+                3 -> model?.settingsFragment!!
+                else -> model?.clockFragment!!
             }
         }
     }

@@ -20,10 +20,10 @@ class ActivityViewModel : ViewModel() {
 
      // Enum to track page numbers for the ViewPager
     enum class PAGE(val position: Int) {
-        EDIT(-1),
-        LIST(0),
-        CLOCK(1),
-        SETTINGS(2)
+        EDIT(0),
+        LIST(1),
+        CLOCK(2),
+        SETTINGS(3)
     }
 
     var page: MutableLiveData<Int> = MutableLiveData()

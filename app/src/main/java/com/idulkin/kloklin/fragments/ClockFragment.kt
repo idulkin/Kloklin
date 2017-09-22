@@ -14,6 +14,7 @@ import android.view.ViewGroup
 import com.google.gson.Gson
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.models.ClockViewModel
+import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 
 /**
@@ -23,6 +24,7 @@ import com.idulkin.kloklin.objects.Program
 class ClockFragment : Fragment() {
 
     var model: ClockViewModel? = null
+    private val defaultProgram = Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -31,9 +33,13 @@ class ClockFragment : Fragment() {
 
         //Restore last program from shared prefs
         val json = activity.getSharedPreferences("", 0).getString("CurrentProgram", "")
-        val program = Gson().fromJson(json, Program::class.java)
+        val program = Gson().fromJson(json, Program::class.java) ?: defaultProgram
 
-        model?.init(program)
+        if (savedInstanceState == null) {
+            model?.newProgram(program)
+        } else {
+            model?.init(program)
+        }
 
         //Set LiveData observables
         model?.time?.observe(this, Observer<Long> { time ->
@@ -105,6 +111,16 @@ class ClockFragment : Fragment() {
         skip_back_button.setOnClickListener {
             model?.onSkipBackClicked()
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        //Save the current program as a shared preference
+        val editor = activity.getSharedPreferences("", 0).edit()
+        val json = Gson().toJson(model?.program)
+        editor.putString("CurrentProgram", json)
+        editor.apply()
     }
 
     /**

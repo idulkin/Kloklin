@@ -23,7 +23,9 @@ class ListFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         model = ListViewModel.create(this)
-        model?.init()
+        if (savedInstanceState == null) {
+            model?.init()
+        }
     }
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
