@@ -1,9 +1,7 @@
 package com.idulkin.kloklin.data
 
-import android.app.Application
 import android.content.Context
 import android.database.Cursor
-import android.database.sqlite.SQLiteDatabase
 import android.os.AsyncTask
 
 /**
@@ -11,26 +9,29 @@ import android.os.AsyncTask
  */
 class DatabaseManager(context: Context): AsyncTask<String, Int, Cursor>() {
 
-    val timerDBHelper = TimerDBHelper(context)
+    val programDBHelper = ProgramDBHelper(context)
     val allColumns = arrayOf(
-        timerDBHelper.COLUMN_ID,
-        timerDBHelper.COLUMN_NAME,
-        timerDBHelper.COLUMN_INTERVAL,
-        timerDBHelper.COLUMN_ACTION
+        programDBHelper.COLUMN_ID,
+        programDBHelper.COLUMN_NAME,
+        programDBHelper.COLUMN_INTERVAL,
+        programDBHelper.COLUMN_ACTION
     )
 
     override fun doInBackground(vararg args: String?): Cursor {
-        val db = timerDBHelper.readableDatabase
-        var selectionArgs = arrayOf("")
+        val db = programDBHelper.readableDatabase
+        val selectionArgs = arrayOf("")
 
         return db.query(args[0], allColumns, args[1], selectionArgs, null, null, args[3])
-
     }
 
-    fun queryAllTimers () : Cursor {
-
+    /**
+     * Returns the whole table as a cursor, to populate a list on activity create
+     */
+    fun queryAllPrograms() : Cursor {
         return doInBackground(
-            timerDBHelper.TABLE_TIMERS
+            programDBHelper.TABLE_PROGRAMS
         )
     }
+
+
 }

@@ -24,7 +24,7 @@ class ListFragment : Fragment() {
 
         model = ListViewModel.create(this)
         if (savedInstanceState == null) {
-            model?.init()
+            model?.init(context)
         }
     }
 

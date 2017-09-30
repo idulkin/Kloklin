@@ -5,13 +5,12 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
 import android.widget.PopupMenu
-import android.widget.TextView
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.snack
+import kotlinx.android.synthetic.main.program_list_entry.view.*
 
 /**
  * Created by igor.dulkin on 8/1/17.
@@ -19,16 +18,18 @@ import com.idulkin.kloklin.snack
 class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Adapter<ProgramRecyclerAdapter.ProgramViewHolder>() {
 
     class ProgramViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val nameView = itemView.findViewById<TextView>(R.id.program_name)
-        val descView = itemView.findViewById<TextView>(R.id.program_desc)
-        val overflowView = itemView.findViewById<ImageView>(R.id.program_overflow)
+//        val nameView = itemView.findViewById<TextView>(R.id.program_name)
+//        val descView = itemView.findViewById<TextView>(R.id.program_desc)
+//        val overflowView = itemView.findViewById<ImageView>(R.id.program_overflow)
 
         /**
          * Bind a holder. Sets click listeners to launch clock and open overflow menu
          */
         fun bind(program: Program) {
-            nameView.text = program.name
-            descView.text = program.desc
+            itemView.program_name.text = program.name
+            itemView.program_desc.text = program.desc
+//            nameView.text = program.name
+//            descView.text = program.desc
 
             itemView.setOnClickListener {
                 val activity = itemView.context as KloklinActivity
@@ -36,9 +37,9 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
             }
 
             //Overflow menu
+            val overflowView = itemView.program_overflow
             overflowView.setOnClickListener {
-                val menuContext = overflowView.context
-                val popupMenu = PopupMenu(menuContext, overflowView)
+                val popupMenu = PopupMenu(overflowView.context, overflowView)
                 popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
                     when (menuItem.itemId) {
                         R.id.program_edit -> overflowClick(overflowView)

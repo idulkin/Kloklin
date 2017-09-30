@@ -2,6 +2,8 @@ package com.idulkin.kloklin.models
 
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
+import android.content.Context
+import com.idulkin.kloklin.data.DatabaseManager
 import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.objects.Interval
@@ -13,8 +15,9 @@ import com.idulkin.kloklin.objects.Program
 class ListViewModel : ViewModel() {
 
     val programs = ArrayList<Program>()
+    var dbManager: DatabaseManager? = null
 
-    fun init() {
+    fun init(context: Context) {
         //Test values
         programs.add(Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, ""))))
         val timer = Interval(5, "Test")
@@ -24,6 +27,9 @@ class ListViewModel : ViewModel() {
             i++
         }
         //TODO:Replace previous with real list
+
+        dbManager = DatabaseManager(context)
+        val cursor = dbManager?.queryAllPrograms()
     }
 
     /**

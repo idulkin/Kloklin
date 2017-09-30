@@ -1,0 +1,45 @@
+{
+  "programs": [
+    {
+      "name": "One Minute",
+      "interval": 60,
+      "action": ""
+    },
+    {
+      "name": "5 Round Tabata",
+      "interval": 20,
+      "action": "Work",
+      "interval": 10,
+      "action": "Rest",
+      "interval": 20,
+      "action": "Work",
+      "interval": 10,
+      "action": "Rest",
+      "interval": 20,
+      "action": "Work",
+      "interval": 10,
+      "action": "Rest",
+      "interval": 20,
+      "action": "Work",
+      "interval": 10,
+      "action": "Rest",
+      "interval": 20,
+      "action": "Work",
+      "interval": 10,
+      "action": "Rest"
+    },
+    {
+      "name": "5 Round EMOM",
+      "interval": 60,
+      "action": "Work",
+      "interval": 60,
+      "action": "Work",
+      "interval": 60,
+      "action": "Work",
+      "interval": 60,
+      "action": "Work",
+      "interval": 60,
+      "action": "Work"
+    }
+  ]
+}

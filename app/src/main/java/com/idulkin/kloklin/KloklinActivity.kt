@@ -80,7 +80,7 @@ class KloklinActivity : FragmentActivity() {
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> model?.editFragment!! //May need to take this out of the viewpager
+                0 -> model?.editFragment!!
                 1 -> model?.listFragment!!
                 2 -> model?.clockFragment!!
                 3 -> model?.settingsFragment!!
