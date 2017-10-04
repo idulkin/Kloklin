@@ -38,7 +38,7 @@ class ListFragment : Fragment() {
 
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(model?.programs!!)
+        program_recycler.adapter = ProgramRecyclerAdapter(model?.programs!!)// ?: arrayListOf())
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 }

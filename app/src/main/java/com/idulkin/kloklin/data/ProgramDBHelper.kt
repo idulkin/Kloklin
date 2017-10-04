@@ -2,6 +2,7 @@ package com.idulkin.kloklin.data
 
 import android.content.ContentValues
 import android.content.Context
+import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.JsonReader
@@ -17,9 +18,9 @@ class ProgramDBHelper(val context: Context) : SQLiteOpenHelper(context, "program
     //DB creation sql statement
     val DB_CREATE = "create table ${DBContract.TABLE_PROGRAMS} " +
             "( ${DBContract.COLUMN_ID} integer primary key autoincrement, " +
-            "${DBContract.COLUMN_NAME}text not null, " +
-            " ${DBContract.COLUMN_INTERVAL} integer not null, " +
-            " ${DBContract.COLUMN_ACTION} text not null)"
+            "${DBContract.COLUMN_NAME} text not null, " +
+            "${DBContract.COLUMN_INTERVAL} integer not null, " +
+            "${DBContract.COLUMN_ACTION} text not null)"
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL(DB_CREATE)
@@ -52,21 +53,39 @@ class ProgramDBHelper(val context: Context) : SQLiteOpenHelper(context, "program
      * Read a program from JSON and insert it into the database
      */
     fun programFromJson(jsonReader: JsonReader, db: SQLiteDatabase) {
-        val values = ContentValues()
-        var name = "None"
+        var name = ""
+        var jsonName: String
 
+        //Start program object
         jsonReader.beginObject()
         while (jsonReader.hasNext()) {
-            val jsonName = jsonReader.nextName()
+            jsonName = jsonReader.nextName()
             if (jsonName == "name") {
                 name = jsonReader.nextString()
             }
 
-            values.put(DBContract.COLUMN_NAME, name)
-            values.put(DBContract.COLUMN_INTERVAL, jsonReader.nextInt())
-            values.put(DBContract.COLUMN_ACTION, jsonReader.nextString())
+            if (jsonName == "intervals") {
+                //Start interval array
+                jsonReader.beginArray()
+                while (jsonReader.hasNext()) {
+                    //Make a DB row and insert it
+                    val values = ContentValues()
+                    jsonReader.beginObject()
+                    values.put(DBContract.COLUMN_NAME, name)
 
-            db.insert(DBContract.TABLE_PROGRAMS, null, values)
+                    jsonName = jsonReader.nextName()
+                    if (jsonName == "interval") {
+                        values.put(DBContract.COLUMN_INTERVAL, jsonReader.nextInt())
+                    }
+                    jsonName = jsonReader.nextName()
+                    if (jsonName == "action") {
+                        values.put(DBContract.COLUMN_ACTION, jsonReader.nextString())
+                    }
+                    jsonReader.endObject()
+                    db.insert(DBContract.TABLE_PROGRAMS, null, values)
+                }
+                jsonReader.endArray()
+            }
         }
         jsonReader.endObject()
     }
@@ -93,4 +112,6 @@ class ProgramDBHelper(val context: Context) : SQLiteOpenHelper(context, "program
     fun deleteProgram(name: String, db: SQLiteDatabase) {
 
     }
+
+
 }
