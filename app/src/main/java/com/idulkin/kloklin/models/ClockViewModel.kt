@@ -26,12 +26,8 @@ class ClockViewModel : ViewModel() {
     var countDown = CountDown(0, 1) //Initialize countdown at 0 seconds
     var position = 0 //Current interval in program
 
-    fun init(program: Program?) {
-        this.program = program ?: this.program
-    }
-
-    fun newProgram(newProgram: Program?) {
-        init(newProgram)
+    fun newProgram(newProgram: Program) {
+        this.program = newProgram
 
         countDown.cancel()
         position = 0

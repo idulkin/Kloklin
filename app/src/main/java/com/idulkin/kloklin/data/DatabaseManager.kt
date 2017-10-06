@@ -12,6 +12,7 @@ import com.idulkin.kloklin.objects.Program
 class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
 
     val programDBHelper = ProgramDBHelper(context)
+    val db = programDBHelper.readableDatabase
     val allColumns = arrayOf(
             DBContract.COLUMN_ID,
             DBContract.COLUMN_NAME,
@@ -20,7 +21,6 @@ class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
     )
 
     override fun doInBackground(vararg args: String?): Cursor {
-        val db = programDBHelper.readableDatabase
         val selectionArgs = if (args[2] != null) {
             arrayOf(args[2])
         } else {
@@ -43,12 +43,6 @@ class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
      *
      * Returns the whole table as a list of programs
      */
-    fun queryAllPrograms(): Cursor {
-        return doInBackground(
-                DBContract.TABLE_PROGRAMS
-        )
-    }
-
     fun queryPrograms(): ArrayList<Program> {
         val list = ArrayList<Program>()
         val programs = ArrayList<String>()
@@ -80,13 +74,12 @@ class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
      */
     fun programByName(name: String): Program {
         val selection = DBContract.COLUMN_NAME + " = ?"
-        val selectionArgs = name
         val sortOrder = DBContract.COLUMN_ID + " DESC"
 
         val cursor = doInBackground(
                 DBContract.TABLE_PROGRAMS,
                 selection,
-                selectionArgs,
+                name,
                 sortOrder
         )
 
@@ -102,5 +95,13 @@ class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
         return Program(name, "", intervals)
     }
 
+    /**
+     * Delete a program from the database by name
+     */
+    fun deleteProgram(name: String) {
+        val selection = DBContract.COLUMN_NAME + " = ?"
+        val selectionArgs = arrayOf(name)
+        db.delete(DBContract.TABLE_PROGRAMS, selection, selectionArgs)
+    }
 
 }

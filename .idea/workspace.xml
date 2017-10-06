@@ -11,28 +11,26 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="eb1b4eb7-d170-44b6-abef-a09625cc517d" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/dagger_2_4.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DBUtils.kt" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/resourceHashesCache.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/classAnalysis.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/jarAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/taskJars.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build.gradle" afterPath="$PROJECT_DIR$/app/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/raw/programs.json" afterPath="$PROJECT_DIR$/app/src/main/res/raw/programs.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -55,70 +53,40 @@
     </system>
   </component>
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
-      <split-first>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ListFragment.kt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="103">
-                  <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-                  <folding>
-                    <element signature="e#39#498#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="ListViewModel.kt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="356">
-                  <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="DatabaseManager.kt" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="277">
-                  <caret line="79" column="6" lean-forward="false" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
-                  <folding>
-                    <element signature="e#34#210#0" expanded="true" />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="programs.json" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/programs.json">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="510">
-                  <caret line="34" column="1" lean-forward="false" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-first>
-      <split-second>
-        <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="ProgramDBHelper.kt" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-308">
-                  <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-        </leaf>
-      </split-second>
-    </splitter>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="ClockViewModel.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+              <folding>
+                <element signature="e#36#341#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ClockFragment.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="286">
+              <caret line="99" column="39" lean-forward="false" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KloklinActivity.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-17">
+              <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -139,6 +107,8 @@
       <find>intervals</find>
       <find>timerDBHelper</find>
       <find>programDBHelper</find>
+      <find>selectionArgs</find>
+      <find>?.</find>
     </findStrings>
     <replaceStrings>
       <replace>interval</replace>
@@ -148,6 +118,8 @@
       <replace>programs</replace>
       <replace>programDBHelper</replace>
       <replace>DBContract</replace>
+      <replace>name</replace>
+      <replace>.</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -2017,11 +1989,6 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/EditFragment.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/layout/fragment_timer_list.xml" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/TimerDBHelper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/raw/timers.json" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/objects/Program.kt" />
@@ -2030,11 +1997,16 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/modules/AppModule.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DBContract.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DBUtils.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/raw/programs.json" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt" />
       </list>
     </option>
   </component>
@@ -2060,10 +2032,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scratches" />
-      <pane id="ProjectPane" />
-      <pane id="Scope" />
       <pane id="AndroidView">
         <subPane>
           <PATH>
@@ -2148,7 +2117,73 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kloklin" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kloklin" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fragments" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kloklin" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kloklin" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kloklin" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kloklin" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.android.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="adapters" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -2164,13 +2199,16 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="device.picker.selection" value="TA98903L7Q" />
-    <property name="SearchEverywhereHistoryKey" value="jso&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/raw/programs.json&#10;build.g&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;build.gra&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;adapter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;build.gr&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;List&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt&#10;Clock&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt&#10;Custom&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;Pager&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;fragment_se&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_settings.xml&#10;Klo&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt&#10;activi&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/activity_kloklin.xml&#10;AndroidManifest&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml&#10;AndroidMa&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/AndroidManifest.xml&#10;build.gradle&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;activity&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/activity_kloklin.xml&#10;fragment&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;ProgramRec&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;acti&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/activity_kloklin.xml&#10;frag&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;big_re&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_restart_button.xml&#10;big_p&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_pause_button.xml&#10;ClockF&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt&#10;Pro&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/Program.kt&#10;Inter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/IntervalAction.kt" />
+    <property name="SearchEverywhereHistoryKey" value="acti&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt&#10;Clock&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt&#10;clock&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt&#10;activity&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt&#10;jso&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/raw/programs.json&#10;build.g&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;build.gra&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;adapter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;build.gr&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;List&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt&#10;Custom&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;Pager&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;fragment_se&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_settings.xml&#10;Klo&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt&#10;activi&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/activity_kloklin.xml&#10;AndroidManifest&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml&#10;AndroidMa&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/AndroidManifest.xml&#10;build.gradle&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;fragment&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;ProgramRec&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;frag&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;big_re&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_restart_button.xml&#10;big_p&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_pause_button.xml&#10;ClockF&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt&#10;Pro&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/Program.kt&#10;Inter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/IntervalAction.kt" />
     <property name="android.profiler.active" value="true" />
     <property name="VectorAssetImportPath" value="$PROJECT_DIR$/../.." />
     <property name="FullScreen" value="true" />
@@ -2266,7 +2304,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507088739627" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507310225867" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2314,7 +2352,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507088739627" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507310225867" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2357,27 +2395,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2508,7 +2525,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507088739628" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507310225870" />
       </method>
     </configuration>
     <list size="1">
@@ -2555,7 +2572,6 @@
     <layout>
       <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -2569,8 +2585,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2160229" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1602289" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2582,9 +2597,11 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="100" y="100" width="1240" height="700" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32747602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2612,32 +2629,14 @@
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt</url>
-          <line>40</line>
-          <properties />
-          <option name="timeStamp" value="94" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt</url>
           <line>71</line>
           <properties />
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt</url>
-          <line>26</line>
-          <properties />
-          <option name="timeStamp" value="99" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
-          <url>file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt</url>
-          <line>34</line>
-          <properties />
-          <option name="timeStamp" value="100" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="kotlin-line">
           <url>file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt</url>
-          <line>57</line>
+          <line>51</line>
           <properties />
           <option name="timeStamp" value="102" />
         </line-breakpoint>
@@ -2648,23 +2647,23 @@
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kloklin.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
           <caret line="27" column="49" lean-forward="false" selection-start-line="27" selection-start-column="49" selection-end-line="27" selection-end-column="49" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_program.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/menu/menu_program.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/os/CountDownTimer.class">
@@ -2739,13 +2738,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_program_list.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="12" column="20" lean-forward="false" selection-start-line="12" selection-start-column="20" selection-end-line="12" selection-end-column="20" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivityFragment.kt" />
@@ -2759,14 +2758,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
     <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
+      </provider>
+      <provider editor-type-id="android-manifest">
+        <state />
       </provider>
     </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/26.1.0/8279b00f5194701ff18363fa2958c5a26670b0ef/support-fragment-26.1.0-sources.jar!/android/support/v4/app/Fragment.java">
@@ -2798,13 +2797,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_clock.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="8" column="13" lean-forward="true" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/KlokFragment.kt" />
@@ -2823,34 +2822,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kloklin.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="43" lean-forward="false" selection-start-line="21" selection-start-column="43" selection-end-line="21" selection-end-column="43" />
-        </state>
-      </provider>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_settings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_timer_list.xml">
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/fragment_timer_list.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
           <caret line="7" column="40" lean-forward="false" selection-start-line="7" selection-start-column="40" selection-end-line="7" selection-end-column="40" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/EditFragment.kt">
@@ -2867,34 +2856,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="115">
-          <caret line="24" column="0" lean-forward="false" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/program_list_entry.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="585">
-          <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1055">
-          <caret line="82" column="42" lean-forward="false" selection-start-line="82" selection-start-column="42" selection-end-line="82" selection-end-column="42" />
+        <state relative-caret-position="585">
+          <caret line="39" column="34" lean-forward="false" selection-start-line="39" selection-start-column="34" selection-end-line="39" selection-end-column="34" />
         </state>
       </provider>
     </entry>
@@ -2902,20 +2870,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
           <caret line="5" column="91" lean-forward="false" selection-start-line="5" selection-start-column="91" selection-end-line="5" selection-end-column="91" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="59">
-          <caret line="15" column="0" lean-forward="false" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-938">
-          <caret line="16" column="6" lean-forward="false" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -2940,19 +2894,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DBUtils.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="495">
-          <caret line="33" column="1" lean-forward="false" selection-start-line="33" selection-start-column="1" selection-end-line="33" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DBUtils.kt" />
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.1.4-2/c8acfe120e74e9c18d30449042679a56fe98d371/kotlin-stdlib-1.1.4-2-sources.jar!/kotlin/collections/Collections.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="275">
           <caret line="100" column="22" lean-forward="false" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2960,51 +2906,104 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="34" column="1" lean-forward="false" selection-start-line="34" selection-start-column="1" selection-end-line="34" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DBContract.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="103">
-          <caret line="26" column="0" lean-forward="false" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
-          <folding>
-            <element signature="e#39#498#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="34" column="0" lean-forward="false" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
+        <state relative-caret-position="195">
+          <caret line="13" column="12" lean-forward="false" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-308">
-          <caret line="52" column="62" lean-forward="false" selection-start-line="52" selection-start-column="62" selection-end-line="52" selection-end-column="62" />
+        <state relative-caret-position="165">
+          <caret line="19" column="30" lean-forward="true" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="79" column="6" lean-forward="false" selection-start-line="79" selection-start-column="6" selection-end-line="79" selection-end-column="6" />
+        <state relative-caret-position="327">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
           <folding>
             <element signature="e#34#210#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/activity_kloklin.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="20" lean-forward="false" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="24" column="16" lean-forward="false" selection-start-line="24" selection-start-column="16" selection-end-line="24" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="20" column="11" lean-forward="false" selection-start-line="20" selection-start-column="11" selection-end-line="20" selection-end-column="11" />
+          <folding>
+            <element signature="e#36#341#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="2" column="7" lean-forward="false" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+          <folding>
+            <element signature="e#38#494#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="43" column="51" lean-forward="false" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
+          <folding>
+            <element signature="e#39#580#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="37" column="46" lean-forward="false" selection-start-line="37" selection-start-column="46" selection-end-line="37" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="99" column="39" lean-forward="false" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-17">
+          <caret line="3" column="23" lean-forward="false" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>

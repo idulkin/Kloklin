@@ -23,36 +23,37 @@ import com.idulkin.kloklin.objects.Program
  */
 class ClockFragment : Fragment() {
 
-    var model: ClockViewModel? = null
+    val model: ClockViewModel by lazy {
+        ClockViewModel.create(this)
+    }
+
     private val defaultProgram = Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        model = ClockViewModel.create(this)
 
         //Restore last program from shared prefs
         val json = activity.getSharedPreferences("", 0).getString("CurrentProgram", "")
         val program = Gson().fromJson(json, Program::class.java) ?: defaultProgram
 
         if (savedInstanceState == null) {
-            model?.newProgram(program)
+            model.newProgram(program)
         } else {
-            model?.init(program)
+            model.program = program
         }
 
         //Set LiveData observables
-        model?.time?.observe(this, Observer<Long> { time ->
+        model.time.observe(this, Observer<Long> { time ->
             if (time != null) {
                 clock_face.text = String.format("%02d:%02d", time / 60, time % 60)
             }
         })
 
-        model?.title?.observe(this, Observer<String> { title ->
+        model.title.observe(this, Observer<String> { title ->
             clock_title.text = title
         })
 
-        model?.description?.observe(this, Observer<String> { text ->
+        model.description.observe(this, Observer<String> { text ->
             if (text != null) {
                 action_text.text = text
 
@@ -63,7 +64,7 @@ class ClockFragment : Fragment() {
             }
         })
 
-        model?.playing?.observe(this, Observer<Boolean> { playing ->
+        model.playing.observe(this, Observer<Boolean> { playing ->
             if (playing != null) {
                 if (playing) {
                     play_button.setImageDrawable(resources.getDrawable(R.drawable.big_pause_button, resources.newTheme()))
@@ -88,7 +89,7 @@ class ClockFragment : Fragment() {
         //Display the title only in portrait orientation
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             clock_title.visibility = View.VISIBLE
-            clock_title.text = model?.program?.name
+            clock_title.text = model.program.name
             bottom_margin.visibility = View.VISIBLE
         } else {
             clock_title.visibility = View.GONE
@@ -97,19 +98,19 @@ class ClockFragment : Fragment() {
 
         // Pause/Play button
         play_button.setOnClickListener {
-            model?.onPlayButtonClicked()
+            model.onPlayButtonClicked()
             skip_forward_button.visibility = View.VISIBLE
             skip_back_button.visibility = View.VISIBLE
         }
 
         // Skip Forward button
         skip_forward_button.setOnClickListener {
-            model?.onSkipForwardClicked()
+            model.onSkipForwardClicked()
         }
 
         // Skip Back button
         skip_back_button.setOnClickListener {
-            model?.onSkipBackClicked()
+            model.onSkipBackClicked()
         }
     }
 
@@ -118,7 +119,7 @@ class ClockFragment : Fragment() {
 
         //Save the current program as a shared preference
         val editor = activity.getSharedPreferences("", 0).edit()
-        val json = Gson().toJson(model?.program)
+        val json = Gson().toJson(model.program)
         editor.putString("CurrentProgram", json)
         editor.apply()
     }

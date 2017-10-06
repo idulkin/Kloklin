@@ -90,28 +90,4 @@ class ProgramDBHelper(val context: Context) : SQLiteOpenHelper(context, "program
         jsonReader.endObject()
     }
 
-    /**
-     * Insert a new program into the database
-     */
-    fun writeProgram(program: Program, db: SQLiteDatabase) {
-        val values = ContentValues()
-        val name = program.name
-
-        for ((seconds, action) in program.intervals) {
-            values.put(DBContract.COLUMN_NAME, name)
-            values.put(DBContract.COLUMN_INTERVAL, seconds)
-            values.put(DBContract.COLUMN_ACTION, action)
-
-            db.insert(DBContract.TABLE_PROGRAMS, null, values)
-        }
-    }
-
-    /**
-     * Remove a program from the database
-     */
-    fun deleteProgram(name: String, db: SQLiteDatabase) {
-
-    }
-
-
 }

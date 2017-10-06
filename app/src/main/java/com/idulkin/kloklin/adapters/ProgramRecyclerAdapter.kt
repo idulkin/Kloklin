@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
+import com.idulkin.kloklin.models.ListViewModel
 import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.snack
 import kotlinx.android.synthetic.main.program_list_entry.view.*
@@ -17,19 +18,13 @@ import kotlinx.android.synthetic.main.program_list_entry.view.*
  */
 class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Adapter<ProgramRecyclerAdapter.ProgramViewHolder>() {
 
-    class ProgramViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-//        val nameView = itemView.findViewById<TextView>(R.id.program_name)
-//        val descView = itemView.findViewById<TextView>(R.id.program_desc)
-//        val overflowView = itemView.findViewById<ImageView>(R.id.program_overflow)
-
+    inner class ProgramViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         /**
          * Bind a holder. Sets click listeners to launch clock and open overflow menu
          */
         fun bind(program: Program) {
             itemView.program_name.text = program.name
             itemView.program_desc.text = program.desc
-//            nameView.text = program.name
-//            descView.text = program.desc
 
             itemView.setOnClickListener {
                 val activity = itemView.context as KloklinActivity
@@ -58,6 +53,11 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
         fun overflowClick(view: View): Boolean {
             view.snack("TODO: Implement this menu action")
             //TODO: Implement menu actions
+            return true
+        }
+
+        fun deleteProgram(index: Int): Boolean {
+
             return true
         }
     }

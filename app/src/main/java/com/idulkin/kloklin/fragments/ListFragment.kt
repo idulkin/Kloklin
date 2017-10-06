@@ -1,5 +1,6 @@
 package com.idulkin.kloklin.fragments
 
+import android.arch.lifecycle.Observer
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
@@ -10,6 +11,7 @@ import android.view.ViewGroup
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 import com.idulkin.kloklin.models.ListViewModel
+import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.fragment_program_list.*
 
 /**
@@ -17,14 +19,15 @@ import kotlinx.android.synthetic.main.fragment_program_list.*
  */
 class ListFragment : Fragment() {
 
-    var model: ListViewModel? = null
+    private val model: ListViewModel by lazy {
+        ListViewModel.create(this)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        model = ListViewModel.create(this)
         if (savedInstanceState == null) {
-            model?.init(context)
+            model.init(context)
         }
     }
 
@@ -38,8 +41,12 @@ class ListFragment : Fragment() {
 
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(model?.programs!!)// ?: arrayListOf())
+        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value!!)
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
+        model.programs.observe(this, Observer {
+            program_recycler.adapter.notifyDataSetChanged()
+        })
     }
 }
 

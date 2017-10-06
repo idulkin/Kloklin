@@ -56,7 +56,7 @@ class ActivityViewModel : ViewModel() {
     }
 
     fun startNewProgram(program: Program) {
-        clockFragment.model?.newProgram(program)
+        clockFragment.model.newProgram(program)
         backStack.push(page.value)
         page.value = PAGE.CLOCK.position
     }

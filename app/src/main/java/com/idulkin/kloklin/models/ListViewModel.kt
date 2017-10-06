@@ -1,8 +1,11 @@
 package com.idulkin.kloklin.models
 
+import android.app.Fragment
+import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 import com.idulkin.kloklin.data.DatabaseManager
 import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.ListFragment
@@ -14,32 +17,33 @@ import com.idulkin.kloklin.objects.Program
  */
 class ListViewModel : ViewModel() {
 
-    var programs = ArrayList<Program>()
-    var dbManager: DatabaseManager? = null
+//    var programs = ArrayList<Program>()
+    var programs: MutableLiveData<ArrayList<Program>> = MutableLiveData()
+    private var dbManager: DatabaseManager? = null
 
     /**
      * Initialize a list for the recycler adapter.
      */
     fun init(context: Context) {
-        //Default list values if the DB is empty
-        programs.add(Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, ""))))
-        val timer = Interval(5, "Test")
-        var i = 0
-        while (i < 5) {
-            programs.add(Program("Test", "Test Description", arrayListOf(timer, timer, timer, timer, timer)))
-            i++
-        }
-
-        //Get the full list from the database
+        //Get the program list from the database
         dbManager = DatabaseManager(context)
-        programs = dbManager?.queryPrograms() ?: programs
+        programs.value = dbManager?.queryPrograms() ?: programs.value
     }
 
     /**
-     * Companion object to instantiate a persistent model
+     * Delete a program from the list
+     */
+    fun deleteProgram(program: Program) {
+        programs.value?.remove(program)
+        dbManager?.deleteProgram(program.name)
+    }
+
+    /**
+     * Companion object returns the view model from ViewModelProviders,
+     * making this a singleton
      */
     companion object {
-        fun create(fragment: ListFragment): ListViewModel{
+        fun create(fragment: ListFragment): ListViewModel {
             return ViewModelProviders.of(fragment).get(ListViewModel::class.java)
         }
     }
