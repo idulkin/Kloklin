@@ -13,14 +13,12 @@
     <list default="true" id="eb1b4eb7-d170-44b6-abef-a09625cc517d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/fileHashes/fileHashes.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/javaCompile/javaCompile.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/4.1/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt" afterPath="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/res/raw/programs.json" afterPath="$PROJECT_DIR$/app/src/main/res/raw/programs.json" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -86,11 +84,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="programs.json" pinned="false" current-in-tab="true">
+      <file leaf-file-name="programs.json" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/programs.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+            <state relative-caret-position="135">
+              <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AndroidManifest.xml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+          <provider editor-type-id="android-manifest">
+            <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="styles.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="76">
+              <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
               <folding />
             </state>
           </provider>
@@ -2039,6 +2060,7 @@
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/idulkin/kloklin/data/DatabaseManager.kt" />
         <option value="$PROJECT_DIR$/app/src/main/res/raw/programs.json" />
+        <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       </list>
     </option>
   </component>
@@ -2050,7 +2072,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
       <flattenPackages />
       <showMembers />
       <showModules />
@@ -2063,13 +2085,32 @@
       <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes />
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kloklin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Kloklin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
+      <pane id="Scope" />
+    </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/Library/Android/sdk" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
     <property name="device.picker.selection" value="TA98903L7Q" />
-    <property name="SearchEverywhereHistoryKey" value="Help&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt&#10;programs&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/raw/programs.json&#10;List&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt&#10;Lis&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt&#10;build.&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/build.gradle&#10;acti&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt&#10;Clock&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt&#10;clock&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt&#10;activity&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt&#10;jso&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/raw/programs.json&#10;build.g&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;build.gra&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;adapter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;build.gr&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;Custom&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;Pager&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;fragment_se&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_settings.xml&#10;Klo&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt&#10;activi&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/activity_kloklin.xml&#10;AndroidManifest&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml&#10;AndroidMa&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/AndroidManifest.xml&#10;build.gradle&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;fragment&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;ProgramRec&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;frag&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;big_re&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_restart_button.xml&#10;big_p&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_pause_button.xml&#10;ClockF&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt&#10;Pro&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/Program.kt&#10;Inter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/IntervalAction.kt" />
+    <property name="SearchEverywhereHistoryKey" value="android&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/AndroidManifest.xml&#10;Help&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/data/ProgramDBHelper.kt&#10;programs&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/raw/programs.json&#10;List&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ListFragment.kt&#10;Lis&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ListViewModel.kt&#10;build.&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/build.gradle&#10;acti&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt&#10;Clock&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ClockViewModel.kt&#10;clock&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt&#10;activity&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/models/ActivityViewModel.kt&#10;jso&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/raw/programs.json&#10;build.g&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;build.gra&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;adapter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;build.gr&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;Custom&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;Pager&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/views/CustomViewPager.kt&#10;fragment_se&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_settings.xml&#10;Klo&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/KloklinActivity.kt&#10;activi&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/activity_kloklin.xml&#10;AndroidManifest&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml&#10;AndroidMa&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/AndroidManifest.xml&#10;build.gradle&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/build.gradle&#10;fragment&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;ProgramRec&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/adapters/ProgramRecyclerAdapter.kt&#10;frag&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/layout/fragment_clock.xml&#10;big_re&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_restart_button.xml&#10;big_p&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/res/drawable/big_pause_button.xml&#10;ClockF&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/fragments/ClockFragment.kt&#10;Pro&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/Program.kt&#10;Inter&#9;FILE&#9;file:///Users/igor.dulkin/Kloklin/app/src/main/java/com/idulkin/kloklin/objects/IntervalAction.kt" />
     <property name="android.profiler.active" value="true" />
     <property name="VectorAssetImportPath" value="$PROJECT_DIR$/../.." />
     <property name="FullScreen" value="true" />
@@ -2165,7 +2206,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507777362575" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507778936012" />
       </method>
     </configuration>
     <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Instrumented Tests">
@@ -2213,7 +2254,7 @@
       </Profilers>
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507777362575" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507778936012" />
       </method>
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -2256,27 +2297,6 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
-      <method />
-    </configuration>
-    <configuration default="true" type="JUnit" factoryName="JUnit">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <module name="" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="VM_PARAMETERS" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="JarApplication" factoryName="JAR Application">
@@ -2407,7 +2427,7 @@
       <option name="ACTIVITY_CLASS" value="" />
       <method>
         <option name="Android.Gradle.BeforeRunTask" enabled="true" />
-        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507777362576" />
+        <option name="com.android.instantApps.provision.BeforeRunTask" enabled="true" clearCache="false" clearProvisionedDevices="false" myTimestamp="1507778936014" />
       </method>
     </configuration>
     <list size="1">
@@ -2463,12 +2483,12 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3585608" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3585608" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1602289" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1602289" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
@@ -2476,14 +2496,37 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34615386" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3287841" sideWeight="0.5028612" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3585608" sideWeight="0.49713877" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34615386" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Documentation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="FLOATING" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" x="100" y="100" width="1240" height="700" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32747602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32893" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1602289" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32754344" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -2586,13 +2629,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="460">
-          <caret line="36" column="38" lean-forward="false" selection-start-line="36" selection-start-column="38" selection-end-line="36" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/app/Activity.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -2620,17 +2656,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/build/intermediates/manifest/androidTest/debug/AndroidManifest.xml" />
-    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
-      <provider editor-type-id="android-manifest">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.android.support/support-fragment/26.1.0/8279b00f5194701ff18363fa2958c5a26670b0ef/support-fragment-26.1.0-sources.jar!/android/support/v4/app/Fragment.java" />
     <entry file="jar://$USER_HOME$/Library/Android/sdk/platforms/android-26/android.jar!/android/media/RingtoneManager.class">
       <provider selected="true" editor-type-id="text-editor">
@@ -2859,8 +2884,27 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/raw/programs.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="20" column="41" lean-forward="false" selection-start-line="20" selection-start-column="41" selection-end-line="20" selection-end-column="41" />
+        <state relative-caret-position="135">
+          <caret line="9" column="41" lean-forward="false" selection-start-line="9" selection-start-column="41" selection-end-line="9" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/res/values/styles.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="53" lean-forward="false" selection-start-line="7" selection-start-column="53" selection-end-line="7" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/AndroidManifest.xml">
+      <provider editor-type-id="android-manifest">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
           <folding />
         </state>
       </provider>
