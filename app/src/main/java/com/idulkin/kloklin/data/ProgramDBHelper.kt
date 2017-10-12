@@ -6,6 +6,7 @@ import android.database.Cursor
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.JsonReader
+import android.util.Log
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.objects.Program
 import java.io.InputStreamReader
@@ -82,7 +83,8 @@ class ProgramDBHelper(val context: Context) : SQLiteOpenHelper(context, "program
                         values.put(DBContract.COLUMN_ACTION, jsonReader.nextString())
                     }
                     jsonReader.endObject()
-                    db.insert(DBContract.TABLE_PROGRAMS, null, values)
+                    val row = db.insert(DBContract.TABLE_PROGRAMS, null, values)
+                    Log.d("DB Insert", "Row #$row")
                 }
                 jsonReader.endArray()
             }

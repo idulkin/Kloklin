@@ -46,10 +46,12 @@ class ClockViewModel : ViewModel() {
             if (position < 0) position = 0
 
             val interval = program.intervals[position]
+            description.value = interval.action
             time.value = interval.seconds
+            val startTime = time.value!! * 1000 + 999 //Gives the timer an extra second to display the start time
 
             countDown.cancel()
-            countDown = CountDown(time.value!! * 1000, 1000)
+            countDown = CountDown(startTime, 1000)
             countDown.start()
             playing.value = true
         }

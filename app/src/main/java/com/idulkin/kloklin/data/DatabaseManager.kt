@@ -74,7 +74,7 @@ class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
      */
     fun programByName(name: String): Program {
         val selection = DBContract.COLUMN_NAME + " = ?"
-        val sortOrder = DBContract.COLUMN_ID + " DESC"
+        val sortOrder = DBContract.COLUMN_ID + " ASC"
 
         val cursor = doInBackground(
                 DBContract.TABLE_PROGRAMS,
