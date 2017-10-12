@@ -52,8 +52,9 @@ class ClockViewModel : ViewModel() {
 
             countDown.cancel()
             countDown = CountDown(startTime, 1000)
-            countDown.start()
-            playing.value = true
+            if(playing.value!!) {
+                countDown.start()
+            }
         }
     }
 
