@@ -1,14 +1,30 @@
 {
   "programs": [
     {
+      "name": "Test",
+      "intervals": [
+        {"interval": 5, "action": "First"},
+        {"interval": 5, "action": "Second"},
+        {"interval": 5, "action": "Third"},
+        {"interval": 5, "action": "Fourth"},
+        {"interval": 5, "action": "Fifth"}
+      ]
+    },
+    {
       "name": "One Minute",
       "intervals": [
         {"interval": 60, "action": ""}
         ]
     },
     {
-      "name": "5 Round Tabata",
+      "name": "Tabata Training",
       "intervals": [
+        {"interval": 20, "action": "Work"},
+        {"interval": 10, "action": "Rest"},
+        {"interval": 20, "action": "Work"},
+        {"interval": 10, "action": "Rest"},
+        {"interval": 20, "action": "Work"},
+        {"interval": 10, "action": "Rest"},
         {"interval": 20, "action": "Work"},
         {"interval": 10, "action": "Rest"},
         {"interval": 20, "action": "Work"},
@@ -22,7 +38,52 @@
         ]
     },
     {
-      "name": "5 Round EMOM",
+      "name": "Little Method",
+      "intervals": [
+        {"interval": 300, "action": "Warm Up"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"},
+        {"interval": 60, "action": "High Intensity"},
+        {"interval": 75, "action": "Low Intensity"}
+      ]
+    },
+    {
+      "name": "30 Seconds On, 30 Seconds Off",
+      "intervals": [
+        {"interval": 30, "action": "Work"},
+        {"interval": 30, "action": "Rest"},
+        {"interval": 30, "action": "Work"},
+        {"interval": 30, "action": "Rest"},
+        {"interval": 30, "action": "Work"},
+        {"interval": 30, "action": "Rest"},
+        {"interval": 30, "action": "Work"},
+        {"interval": 30, "action": "Rest"},
+        {"interval": 30, "action": "Work"},
+        {"interval": 30, "action": "Rest"}
+      ]
+    },
+    {
+      "name": "5 Rounds Every Minute",
       "intervals": [
         {"interval": 60, "action": "Work"},
         {"interval": 60, "action": "Work"},

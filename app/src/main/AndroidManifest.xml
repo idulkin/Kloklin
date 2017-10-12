@@ -11,7 +11,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".KloklinActivity"
-            android:label=""
+            android:label="Kloklin"
             android:theme="@style/AppTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
