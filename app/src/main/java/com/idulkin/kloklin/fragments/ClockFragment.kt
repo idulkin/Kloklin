@@ -1,9 +1,6 @@
 package com.idulkin.kloklin.fragments
 
-import kotlinx.android.synthetic.main.fragment_clock.*
-import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.Observer
-import android.arch.lifecycle.ViewModelProviders
 import android.content.res.Configuration
 import android.media.RingtoneManager
 import android.os.Bundle
@@ -16,9 +13,10 @@ import com.idulkin.kloklin.R
 import com.idulkin.kloklin.models.ClockViewModel
 import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
+import kotlinx.android.synthetic.main.fragment_clock.*
 
 /**
- * The face of the interval timer
+ * The clockface of the interval timer
  * Observes a ClockViewModel and updates the UI
  */
 class ClockFragment : Fragment() {
@@ -27,14 +25,12 @@ class ClockFragment : Fragment() {
         ClockViewModel.create(this)
     }
 
-    private val defaultProgram = Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        //Restore last program from shared prefs
+        //Restore last program from shared prefs, or use a default placeholder
         val json = activity.getSharedPreferences("", 0).getString("CurrentProgram", "")
-        val program = Gson().fromJson(json, Program::class.java) ?: defaultProgram
+        val program = Gson().fromJson(json, Program::class.java) ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
 
         if (savedInstanceState == null) {
             model.newProgram(program)
@@ -42,7 +38,7 @@ class ClockFragment : Fragment() {
             model.program = program
         }
 
-        //Set LiveData observables
+        //Observe LiveData from the model
         model.time.observe(this, Observer<Long> { time ->
             if (time != null) {
                 clock_face.text = String.format("%02d:%02d", time / 60, time % 60)

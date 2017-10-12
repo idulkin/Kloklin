@@ -39,7 +39,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/clock_face"
             android:gravity="center"
-            android:text="@string/lorem_ipsum"
+            android:text="@string/default_description"
             android:elevation="2dp"
             android:textAppearance="@style/large_text" />
 

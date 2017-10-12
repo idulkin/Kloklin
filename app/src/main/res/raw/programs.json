@@ -40,7 +40,7 @@
     {
       "name": "Little Method",
       "intervals": [
-        {"interval": 300, "action": "Warm Up"},
+        {"interval": 180, "action": "Warm Up"},
         {"interval": 60, "action": "High Intensity"},
         {"interval": 75, "action": "Low Intensity"},
         {"interval": 60, "action": "High Intensity"},
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "name": "30 Seconds On, 30 Seconds Off",
+      "name": "30:30 Work/Rest Ratio",
       "intervals": [
         {"interval": 30, "action": "Work"},
         {"interval": 30, "action": "Rest"},
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "name": "5 Rounds Every Minute",
+      "name": "5 Round EMOM",
       "intervals": [
         {"interval": 60, "action": "Work"},
         {"interval": 60, "action": "Work"},

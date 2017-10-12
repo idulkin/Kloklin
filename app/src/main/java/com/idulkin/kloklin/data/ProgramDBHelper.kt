@@ -13,6 +13,8 @@ import java.io.InputStreamReader
 
 /**
  * Created by igor.dulkin on 8/3/17.
+ *
+ * Database Helper to create or upgrade a database
  */
 class ProgramDBHelper(val context: Context) : SQLiteOpenHelper(context, "programs.db", null, 1) {
 
@@ -83,8 +85,7 @@ class ProgramDBHelper(val context: Context) : SQLiteOpenHelper(context, "program
                         values.put(DBContract.COLUMN_ACTION, jsonReader.nextString())
                     }
                     jsonReader.endObject()
-                    val row = db.insert(DBContract.TABLE_PROGRAMS, null, values)
-                    Log.d("DB Insert", "Row #$row")
+                    db.insert(DBContract.TABLE_PROGRAMS, null, values)
                 }
                 jsonReader.endArray()
             }

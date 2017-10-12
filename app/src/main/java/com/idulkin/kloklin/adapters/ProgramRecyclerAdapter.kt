@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.models.ListViewModel
 import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.snack
 import kotlinx.android.synthetic.main.program_list_entry.view.*
