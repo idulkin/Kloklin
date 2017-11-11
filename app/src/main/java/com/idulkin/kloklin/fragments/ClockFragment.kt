@@ -1,7 +1,9 @@
 package com.idulkin.kloklin.fragments
 
 import android.arch.lifecycle.Observer
+import android.content.SharedPreferences
 import android.content.res.Configuration
+import android.media.MediaPlayer
 import android.media.RingtoneManager
 import android.os.Bundle
 import android.support.v4.app.Fragment
@@ -29,8 +31,10 @@ class ClockFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         //Restore last program from shared prefs, or use a default placeholder
-        val json = activity.getSharedPreferences("", 0).getString("CurrentProgram", "")
-        val program = Gson().fromJson(json, Program::class.java) ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
+        val sharedPrefs = activity.getSharedPreferences("", 0)
+        val json = sharedPrefs.getString("CurrentProgram", "")
+        val program = Gson().fromJson(json, Program::class.java)
+                ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
 
         if (savedInstanceState == null) {
             model.newProgram(program)
@@ -72,16 +76,14 @@ class ClockFragment : Fragment() {
 
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_clock, container, false)
-    }
+    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?) =
+        inflater?.inflate(R.layout.fragment_clock, container, false)
 
-    /**
-     * Button listeners set onStart
-     */
-    override fun onStart() {
-        super.onStart()
 
+    override fun onViewCreated(view: View?, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        //TODO: Do this at the resource level
         //Display the title only in portrait orientation
         if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
             clock_title.visibility = View.VISIBLE
@@ -108,6 +110,15 @@ class ClockFragment : Fragment() {
         skip_back_button.setOnClickListener {
             model.onSkipBackClicked()
         }
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+        //Set the beep sound
+        val sharedPrefs = activity.getSharedPreferences("", 0)
+        val beep = sharedPrefs.getInt("Beep", R.raw.chime)
+        model.mediaPlayer = MediaPlayer.create(context, beep)
     }
 
     override fun onDestroy() {

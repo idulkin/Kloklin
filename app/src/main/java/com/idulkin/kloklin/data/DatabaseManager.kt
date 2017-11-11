@@ -48,7 +48,6 @@ class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
         val programs = ArrayList<String>()
         var programName = ""
 
-        val selection = DBContract.COLUMN_NAME + " = ?"
         val cursor = doInBackground(
                 DBContract.TABLE_PROGRAMS,
                 null,

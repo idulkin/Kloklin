@@ -3,7 +3,11 @@ package com.idulkin.kloklin.models
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
+import android.content.SharedPreferences
+import android.media.MediaPlayer
+//TODO: create an interface for the countdown to avoid this import
 import android.os.CountDownTimer
+import com.idulkin.kloklin.R.id.parent
 import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
@@ -16,22 +20,28 @@ import com.idulkin.kloklin.objects.Program
  */
 class ClockViewModel : ViewModel() {
 
-    /** LiveData Observables **/
-    var time: MutableLiveData<Long> = MutableLiveData() //Time remaining in seconds
-    var title: MutableLiveData<String> = MutableLiveData() //Program name
-    var description: MutableLiveData<String> = MutableLiveData() //Current interval text
-    var playing: MutableLiveData<Boolean> = MutableLiveData() //Is the countdown running?
+    /**
+     * Companion object to instantiate a persistent model
+     */
+    companion object {
+        fun create(fragment: ClockFragment): ClockViewModel {
+            return ViewModelProviders.of(fragment).get(ClockViewModel::class.java)
+        }
+    }
 
     /**
      * Inner class to track the countdown
      */
     inner class CountDown(millisInFuture: Long, countDownInterval: Long)
         : CountDownTimer(millisInFuture, countDownInterval / 10) {
+
         override fun onTick(millisUntilFinished: Long) {
             time.value = millisUntilFinished / 1000
         }
 
         override fun onFinish() {
+            mediaPlayer?.start()
+
             position++
             if (position == program.intervals.count()) {
                 //End of the last interval. Set the play button to restart the program
@@ -43,19 +53,17 @@ class ClockViewModel : ViewModel() {
         }
     }
 
-    /**
-     * Companion object to instantiate a persistent model
-     */
-    companion object {
-        fun create(fragment: ClockFragment): ClockViewModel {
-            return ViewModelProviders.of(fragment).get(ClockViewModel::class.java)
-        }
-    }
+    /** LiveData Observables **/
+    var time: MutableLiveData<Long> = MutableLiveData() //Time remaining in seconds
+    var title: MutableLiveData<String> = MutableLiveData() //Program name
+    var description: MutableLiveData<String> = MutableLiveData() //Current interval text
+    var playing: MutableLiveData<Boolean> = MutableLiveData() //Is the countdown running?
 
     /** Not observable vars **/
     var program = Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
     var countDown = CountDown(0, 1) //Initialize countdown at 0 seconds
     var position = 0 //Current interval in program
+    var mediaPlayer: MediaPlayer? = null //Plays a beep at the end of an interval, set in fragment onCreate
 
     fun newProgram(newProgram: Program) {
         this.program = newProgram
@@ -122,6 +130,4 @@ class ClockViewModel : ViewModel() {
             startInterval()
         }
     }
-
-
 }
