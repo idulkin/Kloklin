@@ -117,7 +117,7 @@ class ClockFragment : Fragment() {
 
         //Set the beep sound
         val sharedPrefs = activity.getSharedPreferences("", 0)
-        val beep = sharedPrefs.getInt("Beep", R.raw.chime)
+        val beep = sharedPrefs.getInt("pref_beep", R.raw.chime)
         model.mediaPlayer = MediaPlayer.create(context, beep)
     }
 

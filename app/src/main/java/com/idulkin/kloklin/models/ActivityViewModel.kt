@@ -1,5 +1,6 @@
 package com.idulkin.kloklin.models
 
+import android.app.Fragment
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
@@ -29,9 +30,9 @@ class ActivityViewModel : ViewModel() {
     var page: MutableLiveData<Int> = MutableLiveData()
 
     val clockFragment = ClockFragment()
-    val listFragment = ListFragment()
-    val settingsFragment = SettingsFragment()
-    val editFragment = EditFragment()
+//    val listFragment = ListFragment()
+//    val settingsFragment = SettingsFragment()
+//    val editFragment = EditFragment()
 
     val backStack = Stack<Int>() //Tracks previous fragments for the back button
 

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="pref_beep_entries">
+        <item>Beep Boop</item>
+        <item>Blep</item>
+        <item>Chime</item>
+        <item>Dingaling</item>
+        <item>Drip</item>
+        <item>Piano</item>
+        <item>Tone</item>
+        <item>Winning</item>
+        <item>Wob</item>
+        <item>Wood</item>
+    </string-array>
+
+    <string-array name="pref_beep_values">
+        <item>@raw/beepboop</item>
+        <item>@raw/blep</item>
+        <item>@raw/chime</item>
+        <item>@raw/dingaling</item>
+        <item>@raw/drip</item>
+        <item>@raw/piano</item>
+        <item>@raw/a_tone</item>
+        <item>@raw/winning</item>
+        <item>@raw/wob</item>
+        <item>@raw/wood</item>
+    </string-array>
+</resources>
