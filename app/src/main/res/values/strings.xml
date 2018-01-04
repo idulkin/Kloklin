@@ -22,4 +22,10 @@
     <string name="finish">FINISH</string>
     <string name="endOfTime">00:00</string>
     <string name="default_description">Default Description</string>
+    <string name="sound_pref_title">Interval Sound</string>
+    <string name="sound_pref_summary">Select a sound to play at the end of each interval</string>
+    <string name="mute_pref_summary">Play a sound at the end of each interval?</string>
+    <string name="mute_pref_title">Enable Sounds</string>
+    <string name="pref_beep_default">\@raw/chime</string>
+    <string name="settings_title">Settings</string>
 </resources>

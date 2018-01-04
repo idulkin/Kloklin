@@ -2,12 +2,11 @@ package com.idulkin.kloklin
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
-import android.support.v4.app.Fragment
-import android.support.v4.app.FragmentActivity
-import android.support.v4.app.FragmentManager
-import android.support.v4.app.FragmentStatePagerAdapter
+import android.support.v4.app.*
 import android.view.Menu
 import android.view.MenuItem
+import com.idulkin.kloklin.fragments.EditFragment
+import com.idulkin.kloklin.fragments.SettingsFragment
 import com.idulkin.kloklin.models.ActivityViewModel
 import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.activity_kloklin.*
@@ -81,10 +80,13 @@ class KloklinActivity : FragmentActivity() {
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-                0 -> model.editFragment
-                1 -> model.listFragment
+//                0 -> model.editFragment
+                0 -> EditFragment()
+//                1 -> model.listFragment
+                1 -> ListFragment()
                 2 -> model.clockFragment
-                3 -> model.settingsFragment
+//                3 -> model.settingsFragment
+                3 -> SettingsFragment()
                 else -> model.clockFragment
             }
         }

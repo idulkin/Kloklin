@@ -27,13 +27,13 @@ class ListFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         if (savedInstanceState == null) {
-            model.init(context)
+            model.init(context!!)
         }
     }
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?,
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater?.inflate(R.layout.fragment_program_list, container, false) as View
+        return inflater.inflate(R.layout.fragment_program_list, container, false) as View
     }
 
     override fun onStart() {
