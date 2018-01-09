@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.media.MediaPlayer
 import android.media.RingtoneManager
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -31,7 +32,8 @@ class ClockFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         //Restore last program from shared prefs, or use a default placeholder
-        val sharedPrefs = activity!!.getSharedPreferences("", 0)
+//        val sharedPrefs = activity!!.getSharedPreferences("", 0)
+        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         val json = sharedPrefs.getString("CurrentProgram", "")
         val program = Gson().fromJson(json, Program::class.java)
                 ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
@@ -74,6 +76,16 @@ class ClockFragment : Fragment() {
             }
         })
 
+        //Set the beep sound. Create a new shared pref if there isn't one
+        val beep = sharedPrefs.getString("pref_beep", "R.raw.drip")
+//        model.mediaPlayer = MediaPlayer.create(context, beep)
+
+        val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
+                val boop = sharedPrefs.getInt("pref_beep", R.raw.chime)
+                model.mediaPlayer = MediaPlayer.create(context, boop)
+        }
+
+        sharedPrefs.registerOnSharedPreferenceChangeListener(spListener)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
@@ -112,20 +124,12 @@ class ClockFragment : Fragment() {
         }
     }
 
-    override fun onResume() {
-        super.onResume()
-
-        //Set the beep sound
-        val sharedPrefs = activity!!.getSharedPreferences("", 0)
-        val beep = sharedPrefs.getInt("pref_beep", R.raw.chime)
-        model.mediaPlayer = MediaPlayer.create(context, beep)
-    }
-
     override fun onDestroy() {
         super.onDestroy()
 
         //Save the current program as a shared preference
-        val editor = activity!!.getSharedPreferences("", 0).edit()
+//        val editor = activity!!.getSharedPreferences("", 0).edit()
+        val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
         val json = Gson().toJson(model.program)
         editor.putString("CurrentProgram", json)
         editor.apply()
@@ -135,10 +139,6 @@ class ClockFragment : Fragment() {
      * When at the end of the program, set the screen to restart
      */
     private fun finishProgram() {
-        //Beep
-        val beeper = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
-        RingtoneManager.getRingtone(context, beeper).play()
-
         skip_forward_button.visibility = View.GONE
         skip_back_button.visibility = View.GONE
         play_button.setImageDrawable(resources.getDrawable(R.drawable.big_restart_button, resources.newTheme()))

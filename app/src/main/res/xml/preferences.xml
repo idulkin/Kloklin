@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    android:title="@string/settings_title"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-    <CheckBoxPreference
-        android:key="pref_mute"
-        android:title="@string/mute_pref_title"
-        android:summary="@string/mute_pref_summary"
-        android:defaultValue="true" />
-    <ListPreference
-        android:dependency="pref_mute"
-        android:key="pref_beep"
-        android:title="@string/sound_pref_title"
-        android:summary="@string/sound_pref_summary"
-        android:entries="@array/pref_beep_entries"
-        android:entryValues="@array/pref_beep_values"
-        android:defaultValue="@string/pref_beep_default"
-        />
+    android:layout_height="match_parent"
+    android:title="@string/settings_title">
+
+    <PreferenceCategory android:title="@string/sounds_title">
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="pref_mute"
+            android:summary="@string/mute_pref_summary"
+            android:title="@string/mute_pref_title" />
+        <ListPreference
+            android:defaultValue="@raw/chime"
+            android:dependency="pref_mute"
+            android:entries="@array/pref_beep_entries"
+            android:entryValues="@array/pref_beep_values"
+            android:key="pref_beep"
+            android:summary="@string/sound_pref_summary"
+            android:title="@string/sound_pref_title" />
+    </PreferenceCategory>
 </PreferenceScreen>

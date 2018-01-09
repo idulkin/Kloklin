@@ -11,7 +11,6 @@ import android.view.ViewGroup
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 import com.idulkin.kloklin.models.ListViewModel
-import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.fragment_program_list.*
 
 /**
@@ -38,6 +37,10 @@ class ListFragment : Fragment() {
 
     override fun onStart() {
         super.onStart()
+
+        if (model.programs.value == null) {
+            model.init(context!!)
+        }
 
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)

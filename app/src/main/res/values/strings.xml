@@ -28,4 +28,5 @@
     <string name="mute_pref_title">Enable Sounds</string>
     <string name="pref_beep_default">\@raw/chime</string>
     <string name="settings_title">Settings</string>
+    <string name="sounds_title">Sounds</string>
 </resources>

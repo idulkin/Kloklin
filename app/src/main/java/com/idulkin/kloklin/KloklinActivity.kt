@@ -2,9 +2,11 @@ package com.idulkin.kloklin
 
 import android.arch.lifecycle.Observer
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.v4.app.*
 import android.view.Menu
 import android.view.MenuItem
+import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.EditFragment
 import com.idulkin.kloklin.fragments.SettingsFragment
 import com.idulkin.kloklin.models.ActivityViewModel
@@ -25,6 +27,9 @@ class KloklinActivity : FragmentActivity() {
         action_menu.setOnMenuItemClickListener { menuItem ->
             onOptionsItemSelected(menuItem)
         }
+
+        //Initialize shared preferences
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
 
         //ViewPager contains all fragments
         pager.adapter = FragmentAdapter(supportFragmentManager)
@@ -80,12 +85,9 @@ class KloklinActivity : FragmentActivity() {
 
         override fun getItem(position: Int): Fragment {
             return when (position) {
-//                0 -> model.editFragment
                 0 -> EditFragment()
-//                1 -> model.listFragment
                 1 -> ListFragment()
                 2 -> model.clockFragment
-//                3 -> model.settingsFragment
                 3 -> SettingsFragment()
                 else -> model.clockFragment
             }

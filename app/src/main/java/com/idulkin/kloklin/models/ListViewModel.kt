@@ -1,15 +1,11 @@
 package com.idulkin.kloklin.models
 
-import android.app.Fragment
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
-import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 import com.idulkin.kloklin.data.DatabaseManager
-import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.ListFragment
-import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 
 /**
