@@ -36,7 +36,7 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
                 val popupMenu = PopupMenu(overflowView.context, overflowView)
                 popupMenu.setOnMenuItemClickListener { menuItem: MenuItem ->
                     when (menuItem.itemId) {
-                        R.id.program_edit -> overflowClick(overflowView)
+                        R.id.program_edit -> editProgram(program)
                         R.id.program_move -> overflowClick(overflowView)
                         R.id.program_delete -> overflowClick(overflowView)
                         else -> overflowClick(overflowView)
@@ -52,6 +52,12 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
         fun overflowClick(view: View): Boolean {
             view.snack("TODO: Implement this menu action")
             //TODO: Implement menu actions
+            return true
+        }
+
+        fun editProgram(program: Program): Boolean {
+            val activity = itemView.context as KloklinActivity
+            activity.model.editProgram(program)
             return true
         }
 

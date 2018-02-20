@@ -4,7 +4,7 @@ import android.arch.lifecycle.Observer
 import android.content.SharedPreferences
 import android.content.res.Configuration
 import android.media.MediaPlayer
-import android.media.RingtoneManager
+import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
@@ -32,7 +32,6 @@ class ClockFragment : Fragment() {
         super.onCreate(savedInstanceState)
 
         //Restore last program from shared prefs, or use a default placeholder
-//        val sharedPrefs = activity!!.getSharedPreferences("", 0)
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
         val json = sharedPrefs.getString("CurrentProgram", "")
         val program = Gson().fromJson(json, Program::class.java)
@@ -78,14 +77,14 @@ class ClockFragment : Fragment() {
 
         //Set the beep sound. Create a new shared pref if there isn't one
         val beep = sharedPrefs.getString("pref_beep", "R.raw.drip")
-//        model.mediaPlayer = MediaPlayer.create(context, beep)
+        model.mediaPlayer = MediaPlayer.create(context, Uri.parse(beep))
 
-        val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
-                val boop = sharedPrefs.getInt("pref_beep", R.raw.chime)
-                model.mediaPlayer = MediaPlayer.create(context, boop)
-        }
-
-        sharedPrefs.registerOnSharedPreferenceChangeListener(spListener)
+//        val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
+//                val boop = sharedPrefs.getInt("pref_beep", R.raw.chime)
+//                model.mediaPlayer = MediaPlayer.create(context, boop)
+//        }
+//
+//        sharedPrefs.registerOnSharedPreferenceChangeListener(spListener)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
@@ -128,7 +127,6 @@ class ClockFragment : Fragment() {
         super.onDestroy()
 
         //Save the current program as a shared preference
-//        val editor = activity!!.getSharedPreferences("", 0).edit()
         val editor = PreferenceManager.getDefaultSharedPreferences(context).edit()
         val json = Gson().toJson(model.program)
         editor.putString("CurrentProgram", json)

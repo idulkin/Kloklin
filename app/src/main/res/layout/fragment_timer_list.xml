@@ -2,26 +2,29 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context="com.idulkin.kloklin.fragments.ListFragment"
-    android:name="com.idulkin.kloklin.TimerFragment"
+    tools:context="com.idulkin.kloklin.fragments.EditFragment"
+    android:name="com.idulkin.kloklin.EditFragment"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:orientation="horizontal">
+    android:orientation="vertical"
+    app:layoutManager="LinearLayoutManager">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Edit"
         android:elevation="2dp"
+        android:id="@+id/program_title"
+        android:text="@string/default_title"
         android:textAppearance="@style/title_text"
+
         android:layout_marginStart="@dimen/activity_horizontal_margin" />
 
     <android.support.v7.widget.RecyclerView
-        android:id="@+id/timer_recycler"
+        android:id="@+id/interval_recycler"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginLeft="16dp"
-        android:layout_marginRight="16dp"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/interval_list_entry"
         app:layout_behavior="@string/appbar_scrolling_view_behavior" />
 
 </LinearLayout>

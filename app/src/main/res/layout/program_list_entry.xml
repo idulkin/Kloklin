@@ -39,6 +39,7 @@
         android:layout_height="match_parent"
         android:id="@+id/program_overflow"
         android:src="@drawable/overflow_icon"
+        android:contentDescription="@string/overflow_menu"
         android:layout_gravity="end"
         />
 

@@ -29,4 +29,5 @@
     <string name="pref_beep_default">\@raw/chime</string>
     <string name="settings_title">Settings</string>
     <string name="sounds_title">Sounds</string>
+    <string name="overflow_menu">Overflow Menu</string>
 </resources>

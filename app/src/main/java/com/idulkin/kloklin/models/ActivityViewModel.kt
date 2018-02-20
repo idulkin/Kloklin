@@ -11,6 +11,7 @@ import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.EditFragment
 import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.SettingsFragment
+import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 import java.util.*
 
@@ -28,10 +29,10 @@ class ActivityViewModel : ViewModel() {
     }
 
     var page: MutableLiveData<Int> = MutableLiveData()
+    var edittedProgram = Program("Placeholder", "", arrayListOf(Interval(60, "")))
+    var playingProgram =
 
     val clockFragment = ClockFragment()
-//    val listFragment = ListFragment()
-//    val settingsFragment = SettingsFragment()
 //    val editFragment = EditFragment()
 
     val backStack = Stack<Int>() //Tracks previous fragments for the back button
@@ -51,8 +52,13 @@ class ActivityViewModel : ViewModel() {
         return if (backStack.empty()) {
             false
         } else {
-            page.value = backStack.pop()
-            true
+            val prev = backStack.pop()
+            if (prev != 0) { //Previous is Edit fragment. Skip to the next value
+                page.value = prev
+                true
+            } else {
+                previousPage()
+            }
         }
     }
 
@@ -60,6 +66,12 @@ class ActivityViewModel : ViewModel() {
         clockFragment.model.newProgram(program)
         backStack.push(page.value)
         page.value = PAGE.CLOCK.position
+    }
+
+    fun editProgram(program: Program) {
+        edittedProgram = program
+        backStack.push(page.value)
+        page.value = PAGE.EDIT.position
     }
 
    /**

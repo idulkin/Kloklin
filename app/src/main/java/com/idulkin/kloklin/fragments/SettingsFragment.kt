@@ -2,6 +2,7 @@ package com.idulkin.kloklin.fragments
 
 import android.content.SharedPreferences
 import android.media.MediaPlayer
+import android.net.Uri
 import android.os.Bundle
 import android.support.v7.preference.PreferenceFragmentCompat
 import android.support.v7.preference.PreferenceManager
@@ -18,15 +19,15 @@ class SettingsFragment: PreferenceFragmentCompat() {
 
         setPreferencesFromResource(R.xml.preferences, rootKey)
 
-        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
-
-        val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
-                val boop = sharedPrefs.getInt("pref_beep", R.raw.chime)
-                val player = MediaPlayer.create(context, boop)
-                player.start()
-        }
-
-        sharedPrefs.registerOnSharedPreferenceChangeListener(spListener)
+//        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
+//
+//        val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
+//                val boop = sharedPrefs.getString("pref_beep", "R.raw.chime")
+//                val player = MediaPlayer.create(context, Uri.parse(boop))
+//                player.start()
+//        }
+//
+//        sharedPrefs.registerOnSharedPreferenceChangeListener(spListener)
 
 
     }
