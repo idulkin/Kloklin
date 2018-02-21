@@ -11,11 +11,10 @@ import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.EditFragment
 import com.idulkin.kloklin.fragments.SettingsFragment
-import com.idulkin.kloklin.models.ActivityViewModel
+import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.activity_kloklin.*
-import java.time.Clock
 
 class KloklinActivity : FragmentActivity() {
 

@@ -1,10 +1,7 @@
 package com.idulkin.kloklin.fragments
 
 import android.arch.lifecycle.Observer
-import android.content.SharedPreferences
 import android.content.res.Configuration
-import android.media.MediaPlayer
-import android.net.Uri
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v4.app.Fragment
@@ -14,9 +11,7 @@ import android.view.ViewGroup
 import com.google.gson.Gson
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.models.ClockViewModel
-import com.idulkin.kloklin.objects.Interval
-import com.idulkin.kloklin.objects.Program
+import com.idulkin.kloklin.viewmodels.ClockViewModel
 import kotlinx.android.synthetic.main.fragment_clock.*
 
 /**

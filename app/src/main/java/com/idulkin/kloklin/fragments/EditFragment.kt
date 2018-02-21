@@ -10,8 +10,7 @@ import android.view.ViewGroup
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.IntervalRecyclerAdapter
-import com.idulkin.kloklin.objects.Interval
-import com.idulkin.kloklin.objects.Program
+import com.idulkin.kloklin.viewmodels.EditViewModel
 import kotlinx.android.synthetic.main.fragment_timer_list.*
 
 /**
@@ -21,7 +20,10 @@ import kotlinx.android.synthetic.main.fragment_timer_list.*
  */
 class EditFragment: Fragment() {
 
-    private var program = Program("Placeholder", "", arrayListOf(Interval(10, "")))
+    val model: EditViewModel by lazy {
+        EditViewModel.create(activity as KloklinActivity)
+    }
+
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -33,7 +35,7 @@ class EditFragment: Fragment() {
 
         userVisibleHint = false
         interval_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        interval_recycler.adapter = IntervalRecyclerAdapter(program.intervals)
+        interval_recycler.adapter = IntervalRecyclerAdapter(model.program.intervals)
         interval_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
@@ -43,9 +45,9 @@ class EditFragment: Fragment() {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (userVisibleHint) {
-            program = (activity as KloklinActivity).model.editedProgram
-            program_title.text = program.name
-            interval_recycler.adapter = IntervalRecyclerAdapter(program.intervals)
+            model.program = (activity as KloklinActivity).model.editedProgram
+            program_title.text = model.program.name
+            interval_recycler.adapter = IntervalRecyclerAdapter(model.program.intervals)
             interval_recycler.adapter.notifyDataSetChanged()
         }
     }

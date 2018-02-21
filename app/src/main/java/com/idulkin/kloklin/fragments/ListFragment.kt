@@ -11,7 +11,7 @@ import android.view.ViewGroup
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
-import com.idulkin.kloklin.models.ListViewModel
+import com.idulkin.kloklin.viewmodels.ListViewModel
 import kotlinx.android.synthetic.main.fragment_program_list.*
 
 /**
