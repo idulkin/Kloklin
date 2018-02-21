@@ -12,6 +12,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.google.gson.Gson
+import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.models.ClockViewModel
 import com.idulkin.kloklin.objects.Interval
@@ -25,23 +26,11 @@ import kotlinx.android.synthetic.main.fragment_clock.*
 class ClockFragment : Fragment() {
 
     val model: ClockViewModel by lazy {
-        ClockViewModel.create(this)
+        ClockViewModel.create(activity as KloklinActivity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        //Restore last program from shared prefs, or use a default placeholder
-        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context)
-        val json = sharedPrefs.getString("CurrentProgram", "")
-        val program = Gson().fromJson(json, Program::class.java)
-                ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
-
-        if (savedInstanceState == null) {
-            model.newProgram(program)
-        } else {
-            model.program = program
-        }
 
         //Observe LiveData from the model
         model.time.observe(this, Observer<Long> { time ->
@@ -74,17 +63,11 @@ class ClockFragment : Fragment() {
                 }
             }
         })
-
+/*
         //Set the beep sound. Create a new shared pref if there isn't one
         val beep = sharedPrefs.getString("pref_beep", "R.raw.drip")
         model.mediaPlayer = MediaPlayer.create(context, Uri.parse(beep))
-
-//        val spListener = SharedPreferences.OnSharedPreferenceChangeListener { sharedPrefs, key ->
-//                val boop = sharedPrefs.getInt("pref_beep", R.raw.chime)
-//                model.mediaPlayer = MediaPlayer.create(context, boop)
-//        }
-//
-//        sharedPrefs.registerOnSharedPreferenceChangeListener(spListener)
+        */
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) =
@@ -122,7 +105,18 @@ class ClockFragment : Fragment() {
             model.onSkipBackClicked()
         }
     }
-
+    /*
+     * When this fragment becomes visible, check if the activity is starting a new program
+     */
+    override fun setUserVisibleHint(isVisibleToUser: Boolean) {
+        super.setUserVisibleHint(isVisibleToUser)
+        if (userVisibleHint && activity != null) {
+            val activity = activity as KloklinActivity
+            if (activity.model.playingProgram != model.program) {
+                model.newProgram(activity.model.playingProgram)
+            }
+        }
+    }
     override fun onDestroy() {
         super.onDestroy()
 

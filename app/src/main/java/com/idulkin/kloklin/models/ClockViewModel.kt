@@ -7,6 +7,7 @@ import android.content.SharedPreferences
 import android.media.MediaPlayer
 //TODO: create an interface for the countdown to avoid this import
 import android.os.CountDownTimer
+import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R.id.parent
 import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.objects.Interval
@@ -24,8 +25,8 @@ class ClockViewModel : ViewModel() {
      * Companion object to instantiate a persistent model
      */
     companion object {
-        fun create(fragment: ClockFragment): ClockViewModel {
-            return ViewModelProviders.of(fragment).get(ClockViewModel::class.java)
+        fun create(activity: KloklinActivity): ClockViewModel {
+            return ViewModelProviders.of(activity).get(ClockViewModel::class.java)
         }
     }
 

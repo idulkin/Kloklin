@@ -8,6 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 import com.idulkin.kloklin.models.ListViewModel
@@ -19,7 +20,7 @@ import kotlinx.android.synthetic.main.fragment_program_list.*
 class ListFragment : Fragment() {
 
     private val model: ListViewModel by lazy {
-        ListViewModel.create(this)
+        ListViewModel.create(activity as KloklinActivity)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

@@ -4,6 +4,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.data.DatabaseManager
 import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.objects.Program
@@ -39,8 +40,8 @@ class ListViewModel : ViewModel() {
      * making this a singleton
      */
     companion object {
-        fun create(fragment: ListFragment): ListViewModel {
-            return ViewModelProviders.of(fragment).get(ListViewModel::class.java)
+        fun create(activity: KloklinActivity): ListViewModel {
+            return ViewModelProviders.of(activity).get(ListViewModel::class.java)
         }
     }
 }

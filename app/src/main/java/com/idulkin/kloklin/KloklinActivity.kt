@@ -6,12 +6,16 @@ import android.preference.PreferenceManager
 import android.support.v4.app.*
 import android.view.Menu
 import android.view.MenuItem
+import com.google.gson.Gson
+import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.EditFragment
 import com.idulkin.kloklin.fragments.SettingsFragment
 import com.idulkin.kloklin.models.ActivityViewModel
+import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 import kotlinx.android.synthetic.main.activity_kloklin.*
+import java.time.Clock
 
 class KloklinActivity : FragmentActivity() {
 
@@ -42,6 +46,13 @@ class KloklinActivity : FragmentActivity() {
                 pager.currentItem = page
             }
         })
+
+        //Restore last program from shared prefs, or use a default placeholder
+        val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
+        val json = sharedPrefs.getString("CurrentProgram", "")
+        model.playingProgram = Gson().fromJson(json, Program::class.java)
+                ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
+
     }
 
     /**
@@ -87,9 +98,9 @@ class KloklinActivity : FragmentActivity() {
             return when (position) {
                 0 -> EditFragment()
                 1 -> ListFragment()
-                2 -> model.clockFragment
+                2 -> ClockFragment()
                 3 -> SettingsFragment()
-                else -> model.clockFragment
+                else -> ClockFragment()
             }
         }
     }

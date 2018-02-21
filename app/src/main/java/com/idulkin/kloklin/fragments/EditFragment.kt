@@ -43,7 +43,7 @@ class EditFragment: Fragment() {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (userVisibleHint) {
-            program = (activity as KloklinActivity).model.edittedProgram
+            program = (activity as KloklinActivity).model.editedProgram
             program_title.text = program.name
             interval_recycler.adapter = IntervalRecyclerAdapter(program.intervals)
             interval_recycler.adapter.notifyDataSetChanged()
