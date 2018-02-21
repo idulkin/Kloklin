@@ -1,7 +1,5 @@
-.idea/*
-.idea/workspace.xml
 *.iml
-build/*
+release/
 /.gradle/
 .idea/
 build/

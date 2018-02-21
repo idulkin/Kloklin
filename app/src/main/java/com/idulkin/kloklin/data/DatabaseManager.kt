@@ -39,8 +39,6 @@ class DatabaseManager(context: Context) : AsyncTask<String, Int, Cursor>() {
     }
 
     /**
-     * Moves through
-     *
      * Returns the whole table as a list of programs
      */
     fun queryPrograms(): ArrayList<Program> {
