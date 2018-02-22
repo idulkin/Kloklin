@@ -5,25 +5,46 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
 import com.idulkin.kloklin.KloklinActivity
-import com.idulkin.kloklin.data.DatabaseManager
+import com.idulkin.kloklin.KloklinApplication
+import com.idulkin.kloklin.data.DBManager
 import com.idulkin.kloklin.objects.Program
+import kotlinx.coroutines.experimental.async
 
 /**
  * Created by igor.dulkin on 9/18/17.
  */
 class ListViewModel : ViewModel() {
 
-//    var programs = ArrayList<Program>()
     var programs: MutableLiveData<ArrayList<Program>> = MutableLiveData()
-    private var dbManager: DatabaseManager? = null
+//    private var dbManager: DatabaseManager? = null
+    private lateinit var dbManager: DBManager
 
     /**
      * Initialize a list for the recycler adapter.
      */
     fun init(context: Context) {
         //Get the program list from the database
-        dbManager = DatabaseManager(context)
-        programs.value = dbManager?.queryPrograms() ?: programs.value
+//        dbManager = DatabaseManager(context)
+//        programs.value = dbManager?.queryPrograms() ?: programs.value
+//        val db = Room
+//                .databaseBuilder(context, AppDatabase::class.java, "programs")
+//                .build()
+//        val programsFromDB = db.programDao().allPrograms()
+//        for (program in programsFromDB) {
+//            programs.value?.add(program.getProgram())
+//        }
+
+//        dbManager = DBManager(context)
+//        programs.value = dbManager.queryPrograms()
+
+        programs.value = arrayListOf()
+
+        async {
+            val dbPrograms = KloklinApplication.db.programDao().allPrograms()
+            for (program in dbPrograms) {
+                programs.value?.add(program.getProgram())
+            }
+        }
     }
 
     /**
@@ -31,7 +52,7 @@ class ListViewModel : ViewModel() {
      */
     fun deleteProgram(program: Program) {
         programs.value?.remove(program)
-        dbManager?.deleteProgram(program.name)
+//        dbManager?.deleteProgram(program.name)
     }
 
     /**

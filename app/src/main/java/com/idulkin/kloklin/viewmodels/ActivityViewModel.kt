@@ -3,9 +3,11 @@ package com.idulkin.kloklin.viewmodels
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
+import android.arch.persistence.room.Room
 import android.view.MenuItem
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
+import com.idulkin.kloklin.data.AppDatabase
 import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 import java.util.*
@@ -27,6 +29,7 @@ class ActivityViewModel : ViewModel() {
     var playingProgram = Program("Placeholder", "", arrayListOf(Interval(60, "")))
     var editedProgram = playingProgram
 
+//    var database: AppDatabase? = null
 //    val clockFragment = ClockFragment()
 //    val editFragment = EditFragment()
 

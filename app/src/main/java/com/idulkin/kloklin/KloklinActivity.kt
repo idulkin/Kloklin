@@ -1,12 +1,14 @@
 package com.idulkin.kloklin
 
 import android.arch.lifecycle.Observer
+import android.arch.persistence.room.Room
 import android.os.Bundle
 import android.preference.PreferenceManager
 import android.support.v4.app.*
 import android.view.Menu
 import android.view.MenuItem
 import com.google.gson.Gson
+import com.idulkin.kloklin.data.AppDatabase
 import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.EditFragment
@@ -34,6 +36,13 @@ class KloklinActivity : FragmentActivity() {
         //Initialize shared preferences
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
 
+//        Initialize Room database if it doesn't exist yet
+//        if (model.database == null) {
+//            model.database = Room
+//                    .databaseBuilder(applicationContext, AppDatabase::class.java, "programs")
+//                    .build()
+//        }
+
         //ViewPager contains all fragments
         pager.adapter = FragmentAdapter(supportFragmentManager)
         if (savedInstanceState == null) {
@@ -51,7 +60,6 @@ class KloklinActivity : FragmentActivity() {
         val json = sharedPrefs.getString("CurrentProgram", "")
         model.playingProgram = Gson().fromJson(json, Program::class.java)
                 ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
-
     }
 
     /**
