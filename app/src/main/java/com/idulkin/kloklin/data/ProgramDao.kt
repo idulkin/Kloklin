@@ -5,12 +5,12 @@ import android.arch.persistence.room.*
 
 /**
  * Created by igor on 2/20/18.
+ *
+ * Data Access Object for all database interactions
  */
 
 @Dao
 interface ProgramDao {
-    //Getter function because suspend keyword doesn't work well with Room queries
-//    suspend fun getPrograms(): List<DBProgram> = allPrograms()
 
     @Query("SELECT * FROM programs")
     fun allPrograms(): List<DBProgram>

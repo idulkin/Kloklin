@@ -1,23 +1,28 @@
 package com.idulkin.kloklin
 
 import android.arch.lifecycle.Observer
-import android.arch.persistence.room.Room
 import android.os.Bundle
 import android.preference.PreferenceManager
-import android.support.v4.app.*
+import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v4.app.FragmentManager
+import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.Menu
 import android.view.MenuItem
 import com.google.gson.Gson
-import com.idulkin.kloklin.data.AppDatabase
 import com.idulkin.kloklin.fragments.ClockFragment
-import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.EditFragment
+import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.SettingsFragment
-import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
+import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import kotlinx.android.synthetic.main.activity_kloklin.*
 
+/**
+ * UI for the main activity. Shows a ViewPager of fragments
+ * and interacts with the ActivityViewModel
+ */
 class KloklinActivity : FragmentActivity() {
 
     val model: ActivityViewModel by lazy {
@@ -36,17 +41,10 @@ class KloklinActivity : FragmentActivity() {
         //Initialize shared preferences
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
 
-//        Initialize Room database if it doesn't exist yet
-//        if (model.database == null) {
-//            model.database = Room
-//                    .databaseBuilder(applicationContext, AppDatabase::class.java, "programs")
-//                    .build()
-//        }
-
         //ViewPager contains all fragments
         pager.adapter = FragmentAdapter(supportFragmentManager)
         if (savedInstanceState == null) {
-            pager.currentItem = ActivityViewModel.PAGE.LIST.position
+            pager.currentItem = PAGE.LIST.pos
         }
 
         model.page.observe(this, Observer<Int> { page ->

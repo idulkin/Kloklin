@@ -3,40 +3,33 @@ package com.idulkin.kloklin.viewmodels
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
-import android.arch.persistence.room.Room
 import android.view.MenuItem
 import com.idulkin.kloklin.KloklinActivity
+import com.idulkin.kloklin.PAGE
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.data.AppDatabase
 import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
 import java.util.*
 
 /**
  * Created by igor.dulkin on 9/18/17.
+ *
+ * ViewModel for the main activity. Tracks the position of the ViewPager and
+ * interacts with the database to maintain the list of all programs
  */
 class ActivityViewModel : ViewModel() {
 
-     // Enum to track page numbers for the ViewPager
-    enum class PAGE(val position: Int) {
-        EDIT(0),
-        LIST(1),
-        CLOCK(2),
-        SETTINGS(3)
-    }
-
     var page: MutableLiveData<Int> = MutableLiveData()
-    var playingProgram = Program("Placeholder", "", arrayListOf(Interval(60, "")))
-    var editedProgram = playingProgram
     private val backStack = Stack<Int>() //Tracks previous fragments for the back button
 
+    //Action bar icon navigation by ViewPager
     fun onMenuItemClicked(item: MenuItem) {
         backStack.push(page.value)
         page.value = when (item.itemId) {
-            R.id.action_list -> PAGE.LIST.position
-            R.id.action_clock -> PAGE.CLOCK.position
-            R.id.action_settings -> PAGE.SETTINGS.position
-            else -> PAGE.CLOCK.position
+            R.id.action_list -> PAGE.LIST.pos
+            R.id.action_clock -> PAGE.CLOCK.pos
+            R.id.action_settings -> PAGE.SETTINGS.pos
+            else -> PAGE.CLOCK.pos
         }
     }
 
@@ -55,16 +48,19 @@ class ActivityViewModel : ViewModel() {
         }
     }
 
+    var playingProgram = Program("Placeholder", "", arrayListOf(Interval(60, "")))
+    var editedProgram = playingProgram
+
     fun startNewProgram(program: Program) {
         playingProgram = program
         backStack.push(page.value)
-        page.value = PAGE.CLOCK.position
+        page.value = PAGE.CLOCK.pos
     }
 
     fun editProgram(program: Program) {
         editedProgram = program
         backStack.push(page.value)
-        page.value = PAGE.EDIT.position
+        page.value = PAGE.EDIT.pos
     }
 
    /**

@@ -2,7 +2,6 @@ package com.idulkin.kloklin
 
 import android.support.design.widget.Snackbar
 import android.view.View
-import android.widget.Toast
 import com.idulkin.kloklin.data.DBProgram
 import com.idulkin.kloklin.objects.Interval
 
@@ -24,3 +23,11 @@ val defaults: List<DBProgram> = listOf(
         DBProgram("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth"))),
         DBProgram("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth")))
 )
+
+// Enum to track page numbers for the ViewPager
+enum class PAGE(val pos: Int) {
+    EDIT(0),
+    LIST(1),
+    CLOCK(2),
+    SETTINGS(3)
+}

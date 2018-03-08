@@ -47,12 +47,10 @@ class ListFragment : Fragment() {
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         model.programs.observe(this, Observer {
-            //Workaround for bug with notifyDataSetChanged
+            //Workaround for notifyDataSetChanged not updating async
 //            program_recycler.adapter.notifyDataSetChanged()
             program_recycler.swapAdapter(ProgramRecyclerAdapter(model.programs.value!!), true)
         })
-
-
     }
 }
 

@@ -12,22 +12,19 @@ import com.idulkin.kloklin.objects.Interval
  * Type converters to help Room store ArrayLists
  */
 class Converters {
+
     @TypeConverter
     fun fromString(value: String): ArrayList<Interval> {
-
         val listType = object : TypeToken<ArrayList<Interval>>() {}.type
 
         return Gson().fromJson(value, listType)
-
     }
 
     @TypeConverter
     fun fromArrayList(list: ArrayList<Interval>): String {
-
         val gson = Gson()
         val json = gson.toJson(list)
 
         return json
-
     }
 }
