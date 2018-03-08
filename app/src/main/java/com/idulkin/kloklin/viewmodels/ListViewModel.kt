@@ -26,13 +26,18 @@ class ListViewModel : ViewModel() {
         override fun doInBackground(vararg params: String?): ArrayList<Program> {
             val out = ArrayList<Program>()
             val dao = KloklinApplication.db.programDao()
-            val programsFromDB = dao.allPrograms()
+            var programsFromDB = dao.allPrograms()
+
+            when (params[0]) {
+                "delete" -> dao.deleteProgram(DBProgram(programs.value!![params[1]!!.toInt()]))
+            }
 
             //Empty database, fill it with defaults
             if (programsFromDB.isEmpty()) {
                 for (program in defaults) {
                     dao.addProgram(program)
                 }
+                programsFromDB = dao.allPrograms()
             }
 
             programsFromDB.mapTo(out) { it.getProgram() }
@@ -41,34 +46,20 @@ class ListViewModel : ViewModel() {
         }
 
         override fun onPostExecute(result: ArrayList<Program>?) {
-            super.onPostExecute(result)
-
             programs.value = result
         }
     }
 
     fun init() {
         //Get the program list from the database
-        DBManager().execute()
-    }
-
-    fun populateDB() {
-        val dao = KloklinApplication.db.programDao()
-        val defaults: List<DBProgram> = listOf(
-                DBProgram("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth")))
-        )
-
-        for (program in defaults) {
-            dao.addProgram(program)
-        }
+        DBManager().execute("init")
     }
 
     /**
      * Delete a program from the list
      */
     fun deleteProgram(program: Program) {
-        programs.value?.remove(program)
-//        dbManager?.deleteProgram(program.name)
+        DBManager().execute("delete", programs.value!!.indexOf(program).toString())
     }
 
     /**

@@ -28,12 +28,7 @@ class ActivityViewModel : ViewModel() {
     var page: MutableLiveData<Int> = MutableLiveData()
     var playingProgram = Program("Placeholder", "", arrayListOf(Interval(60, "")))
     var editedProgram = playingProgram
-
-//    var database: AppDatabase? = null
-//    val clockFragment = ClockFragment()
-//    val editFragment = EditFragment()
-
-    val backStack = Stack<Int>() //Tracks previous fragments for the back button
+    private val backStack = Stack<Int>() //Tracks previous fragments for the back button
 
     fun onMenuItemClicked(item: MenuItem) {
         backStack.push(page.value)
@@ -62,7 +57,6 @@ class ActivityViewModel : ViewModel() {
 
     fun startNewProgram(program: Program) {
         playingProgram = program
-//        clockFragment.model.newProgram(program)
         backStack.push(page.value)
         page.value = PAGE.CLOCK.position
     }

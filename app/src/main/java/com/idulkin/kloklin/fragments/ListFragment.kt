@@ -26,6 +26,7 @@ class ListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        model.init()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -36,15 +37,22 @@ class ListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
+        if (model.programs.value == null) {
+            model.programs.value = arrayListOf()
+        }
+
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value ?: arrayListOf())
+        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value!!)
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        model.init()
         model.programs.observe(this, Observer {
-            program_recycler.adapter.notifyDataSetChanged()
+            //Workaround for bug with notifyDataSetChanged
+//            program_recycler.adapter.notifyDataSetChanged()
+            program_recycler.swapAdapter(ProgramRecyclerAdapter(model.programs.value!!), true)
         })
+
+
     }
 }
 

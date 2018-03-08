@@ -1,5 +1,6 @@
 package com.idulkin.kloklin.adapters
 
+import android.app.ListFragment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -58,11 +59,6 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
         fun editProgram(program: Program): Boolean {
             val activity = itemView.context as KloklinActivity
             activity.model.editProgram(program)
-            return true
-        }
-
-        fun deleteProgram(index: Int): Boolean {
-
             return true
         }
     }

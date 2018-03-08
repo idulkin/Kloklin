@@ -7,7 +7,7 @@ import com.idulkin.kloklin.objects.Program
 /**
  * Created by igor on 2/20/18.
  *
- * Room Entity and DAO for a table where every row is a program
+ * Room Entity for a table where every row is a program
  */
 @Entity(tableName = "programs") class DBProgram (
         val name: String,
@@ -18,8 +18,11 @@ import com.idulkin.kloklin.objects.Program
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true) var id: Long = 0
 
+    constructor (program: Program): this(program.name, program.desc, program.intervals)
+
     fun getProgram(): Program{
         return Program(name, desc, intervals)
     }
+
 }
 
