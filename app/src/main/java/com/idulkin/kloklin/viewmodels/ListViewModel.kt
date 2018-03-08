@@ -3,17 +3,13 @@ package com.idulkin.kloklin.viewmodels
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
 import android.os.AsyncTask
-import android.util.Log
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.KloklinApplication
-import com.idulkin.kloklin.data.DBManager
 import com.idulkin.kloklin.data.DBProgram
 import com.idulkin.kloklin.defaults
 import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.objects.Program
-import kotlinx.coroutines.experimental.async
 
 /**
  * Created by igor.dulkin on 9/18/17.

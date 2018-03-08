@@ -21,5 +21,6 @@ inline fun View.snack(message: String, length: Int = Snackbar.LENGTH_LONG) {
 
 // List of default values to populate the DB if it's empty
 val defaults: List<DBProgram> = listOf(
+        DBProgram("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth"))),
         DBProgram("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth")))
 )
