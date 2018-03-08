@@ -7,7 +7,6 @@ import android.os.AsyncTask
 import android.view.MenuItem
 import com.idulkin.kloklin.*
 import com.idulkin.kloklin.data.Program
-import com.idulkin.kloklin.objects.Interval
 import java.util.*
 
 /**

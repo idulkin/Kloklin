@@ -6,8 +6,8 @@ import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import com.idulkin.kloklin.Interval
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.objects.Interval
 import com.idulkin.kloklin.snack
 import kotlinx.android.synthetic.main.interval_list_entry.view.*
 

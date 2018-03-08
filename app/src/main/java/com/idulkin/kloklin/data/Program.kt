@@ -1,7 +1,7 @@
 package com.idulkin.kloklin.data
 
 import android.arch.persistence.room.*
-import com.idulkin.kloklin.objects.Interval
+import com.idulkin.kloklin.Interval
 
 /**
  * Created by igor on 2/20/18.
@@ -16,12 +16,5 @@ import com.idulkin.kloklin.objects.Interval
 
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true) var id: Long = 0
-
-//    constructor (program: Program): this(program.name, program.desc, program.intervals)
-
-//    fun getProgram(): Program{
-//        return Program(name, desc, intervals)
-//    }
-
 }
 

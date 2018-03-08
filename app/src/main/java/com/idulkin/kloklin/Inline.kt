@@ -3,14 +3,15 @@ package com.idulkin.kloklin
 import android.support.design.widget.Snackbar
 import android.view.View
 import com.idulkin.kloklin.data.Program
-import com.idulkin.kloklin.objects.Interval
 
 /**
  * Created by igor.dulkin on 8/13/17.
  *
- * Handy functions and vals to inline
+ * Everything that doesn't deserve its own file
  */
 
+// POJO for an interval
+data class Interval(val seconds: Long, val action: String)
 
 // Inlines creating a snackbar, so that I only have to call .snack on a view
 inline fun View.snack(message: String, length: Int = Snackbar.LENGTH_LONG) {

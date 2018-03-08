@@ -30,7 +30,7 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
                 activity.openClock(program)
             }
 
-            //Overflow menu
+            // Overflow menu
             val overflowView = itemView.program_overflow
             overflowView.setOnClickListener {
                 val popupMenu = PopupMenu(overflowView.context, overflowView)
