@@ -3,12 +3,11 @@ package com.idulkin.kloklin.viewmodels
 import android.arch.lifecycle.MutableLiveData
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
+import android.os.AsyncTask
 import android.view.MenuItem
-import com.idulkin.kloklin.KloklinActivity
-import com.idulkin.kloklin.PAGE
-import com.idulkin.kloklin.R
+import com.idulkin.kloklin.*
+import com.idulkin.kloklin.data.Program
 import com.idulkin.kloklin.objects.Interval
-import com.idulkin.kloklin.objects.Program
 import java.util.*
 
 /**
@@ -48,6 +47,8 @@ class ActivityViewModel : ViewModel() {
         }
     }
 
+    //Observable list of programs
+    var programs: MutableLiveData<ArrayList<Program>> = MutableLiveData()
     var playingProgram = Program("Placeholder", "", arrayListOf(Interval(60, "")))
     var editedProgram = playingProgram
 
@@ -62,6 +63,49 @@ class ActivityViewModel : ViewModel() {
         backStack.push(page.value)
         page.value = PAGE.EDIT.pos
     }
+
+
+    /**
+     * Inner class to manage async calls to the database
+     */
+    inner class DBManager : AsyncTask<String, Void, ArrayList<Program>>() {
+
+        override fun doInBackground(vararg params: String?): ArrayList<Program> {
+            val out = ArrayList<Program>()
+            val dao = KloklinApplication.db.programDao()
+            var programsFromDB = dao.allPrograms()
+
+            when (params[0]) {
+                "delete" -> dao.deleteProgram(programs.value!![params[1]!!.toInt()])
+            }
+
+            //Empty database, fill it with defaults
+            if (programsFromDB.isEmpty()) {
+                for (program in defaults) {
+                    dao.addProgram(program)
+                }
+                programsFromDB = dao.allPrograms()
+            }
+
+            programsFromDB.mapTo(out) { it }
+            return out
+        }
+
+        override fun onPostExecute(result: ArrayList<Program>?) {
+            programs.value = result
+        }
+    }
+
+    fun initDB() {
+        //Get the program list from the database
+        DBManager().execute("init")
+    }
+
+    fun deleteProgram(program: Program) {
+        val pos = programs.value!!.indexOf(program).toString()
+        DBManager().execute("delete", pos)
+    }
+
 
    /**
      * Companion object to instantiate a persistent model

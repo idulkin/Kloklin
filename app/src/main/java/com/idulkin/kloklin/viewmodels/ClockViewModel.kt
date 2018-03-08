@@ -7,8 +7,8 @@ import android.media.MediaPlayer
 //TODO: create an interface for the countdown to avoid this import
 import android.os.CountDownTimer
 import com.idulkin.kloklin.KloklinActivity
+import com.idulkin.kloklin.data.Program
 import com.idulkin.kloklin.objects.Interval
-import com.idulkin.kloklin.objects.Program
 
 
 /**

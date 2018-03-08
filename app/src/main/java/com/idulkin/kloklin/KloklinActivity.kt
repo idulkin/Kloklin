@@ -10,12 +10,12 @@ import android.support.v4.app.FragmentStatePagerAdapter
 import android.view.Menu
 import android.view.MenuItem
 import com.google.gson.Gson
+import com.idulkin.kloklin.data.Program
 import com.idulkin.kloklin.fragments.ClockFragment
 import com.idulkin.kloklin.fragments.EditFragment
 import com.idulkin.kloklin.fragments.ListFragment
 import com.idulkin.kloklin.fragments.SettingsFragment
 import com.idulkin.kloklin.objects.Interval
-import com.idulkin.kloklin.objects.Program
 import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import kotlinx.android.synthetic.main.activity_kloklin.*
 
@@ -52,6 +52,9 @@ class KloklinActivity : FragmentActivity() {
                 pager.currentItem = page
             }
         })
+
+        //Load program list from database
+        model.initDB()
 
         //Restore last program from shared prefs, or use a default placeholder
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)

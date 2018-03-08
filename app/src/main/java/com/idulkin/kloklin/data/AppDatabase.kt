@@ -10,7 +10,7 @@ import android.arch.persistence.room.TypeConverters
  * Room Database abstract class. Uses TypeConverters to store interval lists as json
  */
 
-@Database(entities = [(DBProgram::class)], version = 1, exportSchema = false)
+@Database(entities = [(Program::class)], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun programDao(): ProgramDao

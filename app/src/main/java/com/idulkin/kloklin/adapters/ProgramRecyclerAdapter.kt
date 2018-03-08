@@ -1,6 +1,5 @@
 package com.idulkin.kloklin.adapters
 
-import android.app.ListFragment
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -9,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.PopupMenu
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
-import com.idulkin.kloklin.objects.Program
+import com.idulkin.kloklin.data.Program
 import com.idulkin.kloklin.snack
 import kotlinx.android.synthetic.main.program_list_entry.view.*
 
@@ -39,7 +38,7 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
                     when (menuItem.itemId) {
                         R.id.program_edit -> editProgram(program)
                         R.id.program_move -> overflowClick(overflowView)
-                        R.id.program_delete -> overflowClick(overflowView)
+                        R.id.program_delete -> deleteProgram(program)
                         else -> overflowClick(overflowView)
                     }
                 }
@@ -59,6 +58,12 @@ class ProgramRecyclerAdapter(var programs: ArrayList<Program>) : RecyclerView.Ad
         fun editProgram(program: Program): Boolean {
             val activity = itemView.context as KloklinActivity
             activity.model.editProgram(program)
+            return true
+        }
+
+        fun deleteProgram(program: Program): Boolean {
+            val activity = itemView.context as KloklinActivity
+            activity.model.deleteProgram(program)
             return true
         }
     }

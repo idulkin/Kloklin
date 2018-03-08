@@ -11,6 +11,7 @@ import android.view.ViewGroup
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
+import com.idulkin.kloklin.data.Program
 import com.idulkin.kloklin.viewmodels.ListViewModel
 import kotlinx.android.synthetic.main.fragment_program_list.*
 
@@ -23,12 +24,6 @@ class ListFragment : Fragment() {
         ListViewModel.create(activity as KloklinActivity)
     }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-        model.init()
-    }
-
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_program_list, container, false) as View
@@ -37,19 +32,17 @@ class ListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        if (model.programs.value == null) {
-            model.programs.value = arrayListOf()
-        }
+        val activity = activity as KloklinActivity
 
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value!!)
+        program_recycler.adapter = ProgramRecyclerAdapter(activity.model.programs.value ?: arrayListOf<Program>())
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        model.programs.observe(this, Observer {
+        activity.model.programs.observe(this, Observer {
             //Workaround for notifyDataSetChanged not updating async
-//            program_recycler.adapter.notifyDataSetChanged()
-            program_recycler.swapAdapter(ProgramRecyclerAdapter(model.programs.value!!), true)
+            program_recycler.swapAdapter(ProgramRecyclerAdapter(activity.model.programs.value!!), true)
+            //program_recycler.adapter.notifyDataSetChanged()
         })
     }
 }

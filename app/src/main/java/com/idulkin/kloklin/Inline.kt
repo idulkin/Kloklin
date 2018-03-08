@@ -2,7 +2,7 @@ package com.idulkin.kloklin
 
 import android.support.design.widget.Snackbar
 import android.view.View
-import com.idulkin.kloklin.data.DBProgram
+import com.idulkin.kloklin.data.Program
 import com.idulkin.kloklin.objects.Interval
 
 /**
@@ -19,9 +19,9 @@ inline fun View.snack(message: String, length: Int = Snackbar.LENGTH_LONG) {
 }
 
 // List of default values to populate the DB if it's empty
-val defaults: List<DBProgram> = listOf(
-        DBProgram("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth"))),
-        DBProgram("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth")))
+val defaults: List<Program> = listOf(
+        Program("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth"))),
+        Program("Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth")))
 )
 
 // Enum to track page numbers for the ViewPager

@@ -3,8 +3,8 @@ package com.idulkin.kloklin.viewmodels
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProviders
 import com.idulkin.kloklin.KloklinActivity
+import com.idulkin.kloklin.data.Program
 import com.idulkin.kloklin.objects.Interval
-import com.idulkin.kloklin.objects.Program
 
 /**
  * Created by igor on 2/20/18.

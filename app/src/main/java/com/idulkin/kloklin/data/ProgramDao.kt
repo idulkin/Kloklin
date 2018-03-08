@@ -13,17 +13,17 @@ import android.arch.persistence.room.*
 interface ProgramDao {
 
     @Query("SELECT * FROM programs")
-    fun allPrograms(): List<DBProgram>
+    fun allPrograms(): List<Program>
 
     @Query("SELECT * FROM programs WHERE name LIKE :name")
-    fun programByName(name: String): DBProgram
+    fun programByName(name: String): Program
 
     @Insert
-    fun addProgram(program: DBProgram)
+    fun addProgram(program: Program)
 
     @Update
-    fun updateProgram(program: DBProgram)
+    fun updateProgram(program: Program)
 
     @Delete
-    fun deleteProgram(program: DBProgram)
+    fun deleteProgram(program: Program)
 }
