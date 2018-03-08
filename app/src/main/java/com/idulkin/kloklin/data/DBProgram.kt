@@ -13,14 +13,14 @@ import com.idulkin.kloklin.objects.Program
 //        @PrimaryKey val uid: Int,
         @ColumnInfo(name = "name") val name: String,
         @ColumnInfo(name = "desc") val desc: String,
-        @Embedded val intervals: ArrayList<Interval>
+        @Embedded val intervals: ArrayList<Interval>?
     ) {
 
     @ColumnInfo(name = "id")
     @PrimaryKey(autoGenerate = true) var id: Long = 0
 
     fun getProgram(): Program{
-        return Program(name, desc, intervals)
+        return Program(name, desc, intervals ?: arrayListOf())
     }
 }
 

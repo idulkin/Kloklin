@@ -26,9 +26,6 @@ class ListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) {
-            model.init(context!!)
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -39,15 +36,12 @@ class ListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        if (model.programs.value == null) {
-            model.init(context!!)
-        }
-
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value!!)
+        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value ?: arrayListOf())
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
+        model.init()
         model.programs.observe(this, Observer {
             program_recycler.adapter.notifyDataSetChanged()
         })
