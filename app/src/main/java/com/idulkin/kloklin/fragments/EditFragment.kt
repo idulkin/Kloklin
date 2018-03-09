@@ -1,5 +1,6 @@
 package com.idulkin.kloklin.fragments
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.DividerItemDecoration
@@ -7,20 +8,23 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.inputmethod.InputMethodManager
+import android.widget.TextView
 import com.idulkin.kloklin.Interval
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.IntervalRecyclerAdapter
 import com.idulkin.kloklin.viewmodels.ActivityViewModel
-import com.idulkin.kloklin.viewmodels.EditViewModel
-import kotlinx.android.synthetic.main.fragment_timer_list.*
+import kotlinx.android.synthetic.main.fragment_edit.*
+import android.content.Context.INPUT_METHOD_SERVICE
+
 
 /**
  * Fragment for editing a program. A program is an arraylist of intervals,
  * and this shows a recyclerview of that array list, with an add button as
  * the last element.
  */
-class EditFragment: Fragment() {
+class EditFragment : Fragment() {
 
     val model: ActivityViewModel by lazy {
         ActivityViewModel.create(activity as KloklinActivity)
@@ -29,7 +33,7 @@ class EditFragment: Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
-        return inflater.inflate(R.layout.fragment_timer_list, container,false) as View
+        return inflater.inflate(R.layout.fragment_edit, container, false) as View
     }
 
     override fun onStart() {
@@ -46,16 +50,28 @@ class EditFragment: Fragment() {
         interval_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
-    /*
-     * Sets the title and interval list when this fragment becomes visible
-     */
+    override fun onStop() {
+        super.onStop()
+
+        model.updateProgram()
+    }
+
+
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
+
+        // Sets the title and interval list when this fragment becomes visible
         if (userVisibleHint) {
             val program = model.programs.value!![model.editedProgram]
-            program_title.text = program.name
+            program_title.setText(program.name, TextView.BufferType.EDITABLE)
             interval_recycler.adapter = IntervalRecyclerAdapter(program.intervals)
             interval_recycler.adapter.notifyDataSetChanged()
+        } else {
+            //Close soft keyboard when leaving this fragment
+            if (view != null) {
+                val imm = (activity as KloklinActivity).getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+                imm.hideSoftInputFromWindow(view!!.windowToken, 0)
+            }
         }
     }
 }

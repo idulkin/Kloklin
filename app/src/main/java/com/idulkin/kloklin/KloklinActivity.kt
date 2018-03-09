@@ -62,47 +62,33 @@ class KloklinActivity : FragmentActivity() {
                 ?: Program(0, "One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
     }
 
-    override fun onStop() {
-        super.onStop()
 
-        model.updateProgram()
-    }
-
-    /**
-     *Inflate the menu; this adds items to the action bar if it is present.
-     */
+    // Inflate the menu; this adds items to the action bar if it is present.
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
         menuInflater.inflate(R.menu.menu_kloklin, action_menu.menu)
         return true
     }
 
-    /**
-     * Action bar icons
-     */
+    // Action bar icons
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         model.onMenuItemClicked(item)
         return true
     }
 
-    /**
-     * Back button opens previous fragment, or closes the app if there isn't one
-     */
+
+    // Back button opens previous fragment, or closes the app if there isn't one
     override fun onBackPressed() {
         if (!model.previousPage()) {
             super.onBackPressed()
         }
     }
 
-    /**
-     * Open the clock fragment with the provided program
-     */
+    // Open the clock fragment with the provided program
     fun openClock(program: Program) {
         model.startNewProgram(program)
     }
 
-    /**
-     * Adapter class for the view pager
-     */
+    // Adapter class for the view pager
     inner class FragmentAdapter(fm: FragmentManager) : FragmentStatePagerAdapter(fm) {
 
         override fun getCount() = 4 //There are four lights

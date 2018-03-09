@@ -12,7 +12,7 @@ import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 import com.idulkin.kloklin.data.Program
-import com.idulkin.kloklin.viewmodels.ListViewModel
+import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import kotlinx.android.synthetic.main.fragment_program_list.*
 
 /**
@@ -20,8 +20,8 @@ import kotlinx.android.synthetic.main.fragment_program_list.*
  */
 class ListFragment : Fragment() {
 
-    private val model: ListViewModel by lazy {
-        ListViewModel.create(activity as KloklinActivity)
+    private val model: ActivityViewModel by lazy {
+        ActivityViewModel.create(activity as KloklinActivity)
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -32,16 +32,14 @@ class ListFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        val activity = activity as KloklinActivity
-
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(activity.model.programs.value ?: arrayListOf<Program>())
+        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value ?: arrayListOf<Program>())
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
-        activity.model.programs.observe(this, Observer {
+        model.programs.observe(this, Observer {
             //Workaround for notifyDataSetChanged not updating async
-            program_recycler.swapAdapter(ProgramRecyclerAdapter(activity.model.programs.value!!), true)
+            program_recycler.swapAdapter(ProgramRecyclerAdapter(model.programs.value!!), true)
             //program_recycler.adapter.notifyDataSetChanged()
         })
     }

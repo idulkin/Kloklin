@@ -30,4 +30,5 @@
     <string name="settings_title">Settings</string>
     <string name="sounds_title">Sounds</string>
     <string name="overflow_menu">Overflow Menu</string>
+    <string name="enter_a_program_description">Enter a program description</string>
 </resources>
