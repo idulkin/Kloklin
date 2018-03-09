@@ -55,7 +55,7 @@ class IntervalRecyclerAdapter(var intervals: ArrayList<Interval>) : RecyclerView
 
         fun deleteInterval(interval: Interval): Boolean {
             val activity = itemView.context as KloklinActivity
-            activity.model.editedProgram.intervals.remove(interval)
+            activity.model.programs.value!![activity.model.editedProgram].intervals.remove(interval)
             notifyDataSetChanged()
             return true
         }

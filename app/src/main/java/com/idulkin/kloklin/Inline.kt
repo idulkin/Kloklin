@@ -19,6 +19,9 @@ inline fun View.snack(message: String, length: Int = Snackbar.LENGTH_LONG) {
     snack.show()
 }
 
+// Placeholder Program, for uninitialized values
+val placeholder = Program(0, "Placeholder", "", arrayListOf(Interval(60, "")))
+
 // List of default values to populate the DB if it's empty
 val defaults: List<Program> = listOf(
         Program(0, "Test", "Test Description", arrayListOf(Interval(5, "First"), Interval(5, "Second"), Interval(5, "Third"), Interval(5, "Fourth"), Interval(5, "Fifth"))),

@@ -7,9 +7,11 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.idulkin.kloklin.Interval
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.IntervalRecyclerAdapter
+import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import com.idulkin.kloklin.viewmodels.EditViewModel
 import kotlinx.android.synthetic.main.fragment_timer_list.*
 
@@ -20,8 +22,8 @@ import kotlinx.android.synthetic.main.fragment_timer_list.*
  */
 class EditFragment: Fragment() {
 
-    val model: EditViewModel by lazy {
-        EditViewModel.create(activity as KloklinActivity)
+    val model: ActivityViewModel by lazy {
+        ActivityViewModel.create(activity as KloklinActivity)
     }
 
 
@@ -33,11 +35,14 @@ class EditFragment: Fragment() {
     override fun onStart() {
         super.onStart()
 
-        val activity = activity as KloklinActivity
+        var intervals = arrayListOf<Interval>()
+        if (model.programs.value != null) {
+            intervals = model.programs.value!![model.editedProgram].intervals
+        }
 
         userVisibleHint = false
         interval_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        interval_recycler.adapter = IntervalRecyclerAdapter(activity.model.editedProgram.intervals)
+        interval_recycler.adapter = IntervalRecyclerAdapter(intervals)
         interval_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
@@ -47,7 +52,7 @@ class EditFragment: Fragment() {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (userVisibleHint) {
-            val program = (activity as KloklinActivity).model.editedProgram
+            val program = model.programs.value!![model.editedProgram]
             program_title.text = program.name
             interval_recycler.adapter = IntervalRecyclerAdapter(program.intervals)
             interval_recycler.adapter.notifyDataSetChanged()

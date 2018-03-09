@@ -62,8 +62,8 @@ class KloklinActivity : FragmentActivity() {
                 ?: Program(0, "One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
     }
 
-    override fun onDestroy() {
-        super.onDestroy()
+    override fun onStop() {
+        super.onStop()
 
         model.updateProgram()
     }

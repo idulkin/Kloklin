@@ -48,8 +48,8 @@ class ActivityViewModel : ViewModel() {
 
     // Observable list of programs
     var programs: MutableLiveData<ArrayList<Program>> = MutableLiveData()
-    var playingProgram = Program(0, "Placeholder", "", arrayListOf(Interval(60, "")))
-    var editedProgram = playingProgram
+    var playingProgram = placeholder
+    var editedProgram = playingProgram.pos
 
     fun startNewProgram(program: Program) {
         playingProgram = program
@@ -58,7 +58,7 @@ class ActivityViewModel : ViewModel() {
     }
 
     fun editProgram(program: Program) {
-        editedProgram = program
+        editedProgram = program.pos
         backStack.push(page.value)
         page.value = PAGE.EDIT.pos
     }
@@ -75,7 +75,7 @@ class ActivityViewModel : ViewModel() {
 
             when (params[0]) {
                 "delete" -> dao.deleteProgram(programs.value!![params[1]!!.toInt()])
-                "update" -> dao.updateProgram(programs.value!![editedProgram.pos])
+                "update" -> dao.updateProgram(programs.value!![editedProgram])
             }
 
             var programsFromDB = dao.allPrograms()
@@ -108,7 +108,6 @@ class ActivityViewModel : ViewModel() {
     }
 
     fun updateProgram() {
-        programs.value!![editedProgram.pos] = editedProgram
         DBManager().execute("update")
     }
 
