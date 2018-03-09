@@ -59,7 +59,13 @@ class KloklinActivity : FragmentActivity() {
         val sharedPrefs = PreferenceManager.getDefaultSharedPreferences(this)
         val json = sharedPrefs.getString("CurrentProgram", "")
         model.playingProgram = Gson().fromJson(json, Program::class.java)
-                ?: Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
+                ?: Program(0, "One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+
+        model.updateProgram()
     }
 
     /**

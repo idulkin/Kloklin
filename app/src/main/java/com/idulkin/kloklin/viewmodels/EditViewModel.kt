@@ -18,5 +18,5 @@ class EditViewModel : ViewModel() {
     }
 
 
-    var program = Program("Placeholder", "", arrayListOf(Interval(10, "")))
+    var program = Program(0, "Placeholder", "", arrayListOf(Interval(10, "")))
 }

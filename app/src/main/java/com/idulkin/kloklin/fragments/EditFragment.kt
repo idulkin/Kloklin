@@ -33,9 +33,11 @@ class EditFragment: Fragment() {
     override fun onStart() {
         super.onStart()
 
+        val activity = activity as KloklinActivity
+
         userVisibleHint = false
         interval_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        interval_recycler.adapter = IntervalRecyclerAdapter(model.program.intervals)
+        interval_recycler.adapter = IntervalRecyclerAdapter(activity.model.editedProgram.intervals)
         interval_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
@@ -45,9 +47,9 @@ class EditFragment: Fragment() {
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
         if (userVisibleHint) {
-            model.program = (activity as KloklinActivity).model.editedProgram
-            program_title.text = model.program.name
-            interval_recycler.adapter = IntervalRecyclerAdapter(model.program.intervals)
+            val program = (activity as KloklinActivity).model.editedProgram
+            program_title.text = program.name
+            interval_recycler.adapter = IntervalRecyclerAdapter(program.intervals)
             interval_recycler.adapter.notifyDataSetChanged()
         }
     }

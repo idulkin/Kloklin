@@ -17,10 +17,10 @@ import java.util.*
  */
 class ActivityViewModel : ViewModel() {
 
+    // Action bar icon navigation by ViewPager
     var page: MutableLiveData<Int> = MutableLiveData()
     private val backStack = Stack<Int>() //Tracks previous fragments for the back button
 
-    //Action bar icon navigation by ViewPager
     fun onMenuItemClicked(item: MenuItem) {
         backStack.push(page.value)
         page.value = when (item.itemId) {
@@ -46,9 +46,9 @@ class ActivityViewModel : ViewModel() {
         }
     }
 
-    //Observable list of programs
+    // Observable list of programs
     var programs: MutableLiveData<ArrayList<Program>> = MutableLiveData()
-    var playingProgram = Program("Placeholder", "", arrayListOf(Interval(60, "")))
+    var playingProgram = Program(0, "Placeholder", "", arrayListOf(Interval(60, "")))
     var editedProgram = playingProgram
 
     fun startNewProgram(program: Program) {
@@ -72,11 +72,13 @@ class ActivityViewModel : ViewModel() {
         override fun doInBackground(vararg params: String?): ArrayList<Program> {
             val out = ArrayList<Program>()
             val dao = KloklinApplication.db.programDao()
-            var programsFromDB = dao.allPrograms()
 
             when (params[0]) {
                 "delete" -> dao.deleteProgram(programs.value!![params[1]!!.toInt()])
+                "update" -> dao.updateProgram(programs.value!![editedProgram.pos])
             }
+
+            var programsFromDB = dao.allPrograms()
 
             //Empty database, fill it with defaults
             if (programsFromDB.isEmpty()) {
@@ -103,6 +105,11 @@ class ActivityViewModel : ViewModel() {
     fun deleteProgram(program: Program) {
         val pos = programs.value!!.indexOf(program).toString()
         DBManager().execute("delete", pos)
+    }
+
+    fun updateProgram() {
+        programs.value!![editedProgram.pos] = editedProgram
+        DBManager().execute("update")
     }
 
 

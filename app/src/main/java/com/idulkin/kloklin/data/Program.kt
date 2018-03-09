@@ -8,7 +8,9 @@ import com.idulkin.kloklin.Interval
  *
  * Room Entity for a table where every row is a program
  */
-@Entity(tableName = "programs") data class Program (
+@Entity(tableName = "programs") class Program (
+//        @ColumnInfo(name = "order")
+        val pos: Int,
         val name: String,
         val desc: String,
         val intervals: ArrayList<Interval>

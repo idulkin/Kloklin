@@ -12,7 +12,7 @@ import android.arch.persistence.room.*
 @Dao
 interface ProgramDao {
 
-    @Query("SELECT * FROM programs")
+    @Query("SELECT * FROM programs ORDER BY pos")
     fun allPrograms(): List<Program>
 
     @Query("SELECT * FROM programs WHERE name LIKE :name")

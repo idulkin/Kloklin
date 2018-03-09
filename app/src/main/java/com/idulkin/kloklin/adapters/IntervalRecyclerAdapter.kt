@@ -7,6 +7,7 @@ import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
 import com.idulkin.kloklin.Interval
+import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.snack
 import kotlinx.android.synthetic.main.interval_list_entry.view.*
@@ -34,7 +35,7 @@ class IntervalRecyclerAdapter(var intervals: ArrayList<Interval>) : RecyclerView
                     when (menuItem.itemId) {
                         R.id.program_edit -> overflowClick(overflowView)
                         R.id.program_move -> overflowClick(overflowView)
-                        R.id.program_delete -> overflowClick(overflowView)
+                        R.id.program_delete -> deleteInterval(interval)
                         else -> overflowClick(overflowView)
                     }
                 }
@@ -51,6 +52,13 @@ class IntervalRecyclerAdapter(var intervals: ArrayList<Interval>) : RecyclerView
             //TODO: Implement menu actions
             return true
         }
+
+        fun deleteInterval(interval: Interval): Boolean {
+            val activity = itemView.context as KloklinActivity
+            activity.model.editedProgram.intervals.remove(interval)
+            notifyDataSetChanged()
+            return true
+        }
     }
 
     override fun onBindViewHolder(holder: IntervalViewHolder?, position: Int) {
@@ -64,4 +72,5 @@ class IntervalRecyclerAdapter(var intervals: ArrayList<Interval>) : RecyclerView
     override fun getItemCount(): Int {
         return intervals.size
     }
+
 }

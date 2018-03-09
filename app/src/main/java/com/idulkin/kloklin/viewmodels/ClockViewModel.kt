@@ -58,7 +58,7 @@ class ClockViewModel : ViewModel() {
     var playing: MutableLiveData<Boolean> = MutableLiveData() //Is the countdown running?
 
     /** Not observable vars **/
-    var program = Program("One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
+    var program = Program(0, "One Minute", "Placeholder Minute Timer", arrayListOf(Interval(60, "")))
     var countDown = CountDown(0, 1) //Initialize countdown at 0 seconds
     var position = 0 //Current interval in program
     var mediaPlayer: MediaPlayer? = null //Plays a beep at the end of an interval, set in fragment onCreate
