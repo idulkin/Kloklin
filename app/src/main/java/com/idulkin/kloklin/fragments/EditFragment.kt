@@ -16,8 +16,6 @@ import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.IntervalRecyclerAdapter
 import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import kotlinx.android.synthetic.main.fragment_edit.*
-import android.content.Context.INPUT_METHOD_SERVICE
-
 
 /**
  * Fragment for editing a program. A program is an arraylist of intervals,
@@ -48,6 +46,11 @@ class EditFragment : Fragment() {
         interval_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         interval_recycler.adapter = IntervalRecyclerAdapter(intervals)
         interval_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
+
+        add_interval_fab.setOnClickListener {
+            model.programs.value!![model.editedProgram].intervals.add(Interval(5, "New"))
+            interval_recycler.adapter.notifyDataSetChanged()
+        }
     }
 
     override fun onStop() {

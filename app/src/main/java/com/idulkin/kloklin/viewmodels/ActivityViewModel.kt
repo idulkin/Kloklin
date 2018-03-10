@@ -76,6 +76,7 @@ class ActivityViewModel : ViewModel() {
             when (params[0]) {
                 "delete" -> dao.deleteProgram(programs.value!![params[1]!!.toInt()])
                 "update" -> dao.updateProgram(programs.value!![editedProgram])
+                "add" -> dao.addProgram(programs.value!!.last())
             }
 
             var programsFromDB = dao.allPrograms()
@@ -111,8 +112,12 @@ class ActivityViewModel : ViewModel() {
         DBManager().execute("update")
     }
 
+    fun addProgram() {
+        programs.value?.add(Program(programs.value!!.size, "New Program","", arrayListOf()))
+        DBManager().execute("add")
+    }
 
-   /**
+    /**
      * Companion object to instantiate a persistent model
      */
     companion object {

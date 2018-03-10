@@ -12,6 +12,7 @@ import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
 import com.idulkin.kloklin.data.Program
+import com.idulkin.kloklin.placeholder
 import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import kotlinx.android.synthetic.main.fragment_program_list.*
 
@@ -42,6 +43,12 @@ class ListFragment : Fragment() {
             program_recycler.swapAdapter(ProgramRecyclerAdapter(model.programs.value!!), true)
             //program_recycler.adapter.notifyDataSetChanged()
         })
+
+        add_program_fab.setOnClickListener {
+            model.addProgram()
+            program_recycler.adapter.notifyDataSetChanged()
+            model.editProgram(model.programs.value!!.last())
+        }
     }
 }
 

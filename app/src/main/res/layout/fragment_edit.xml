@@ -58,7 +58,7 @@
         tools:listitem="@layout/interval_list_entry" />
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/add_program_fab"
+        android:id="@+id/add_interval_fab"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
