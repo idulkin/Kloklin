@@ -22,7 +22,13 @@ class ActivityViewModel : ViewModel() {
     private val backStack = Stack<Int>() //Tracks previous fragments for the back button
 
     fun onMenuItemClicked(item: MenuItem) {
+        if (page.value == PAGE.EDIT.pos) {
+            updateProgram()
+            editedProgram = 0
+        }
+
         backStack.push(page.value)
+
         page.value = when (item.itemId) {
             R.id.action_list -> PAGE.LIST.pos
             R.id.action_clock -> PAGE.CLOCK.pos
@@ -74,7 +80,7 @@ class ActivityViewModel : ViewModel() {
             val dao = KloklinApplication.db.programDao()
 
             when (params[0]) {
-                "delete" -> dao.deleteProgram(programs.value!![params[1]!!.toInt()])
+                "delete" -> dao.deleteByPos(params[1]!!.toInt())
                 "update" -> dao.updateProgram(programs.value!![editedProgram])
                 "add" -> dao.addProgram(programs.value!!.last())
             }
@@ -104,8 +110,7 @@ class ActivityViewModel : ViewModel() {
     }
 
     fun deleteProgram(program: Program) {
-        val pos = programs.value!!.indexOf(program).toString()
-        DBManager().execute("delete", pos)
+        DBManager().execute("delete", program.pos.toString())
     }
 
     fun updateProgram() {

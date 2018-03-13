@@ -18,6 +18,9 @@ interface ProgramDao {
     @Query("SELECT * FROM programs WHERE name LIKE :name")
     fun programByName(name: String): Program
 
+    @Query("DELETE FROM programs WHERE pos LIKE :pos")
+    fun deleteByPos(pos: Int)
+
     @Insert
     fun addProgram(program: Program)
 

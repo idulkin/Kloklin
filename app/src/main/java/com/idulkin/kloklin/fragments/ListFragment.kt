@@ -11,8 +11,6 @@ import android.view.ViewGroup
 import com.idulkin.kloklin.KloklinActivity
 import com.idulkin.kloklin.R
 import com.idulkin.kloklin.adapters.ProgramRecyclerAdapter
-import com.idulkin.kloklin.data.Program
-import com.idulkin.kloklin.placeholder
 import com.idulkin.kloklin.viewmodels.ActivityViewModel
 import kotlinx.android.synthetic.main.fragment_program_list.*
 
@@ -35,7 +33,7 @@ class ListFragment : Fragment() {
 
         //Set the RecyclerView
         program_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value ?: arrayListOf<Program>())
+        program_recycler.adapter = ProgramRecyclerAdapter(model.programs.value ?: arrayListOf())
         program_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         model.programs.observe(this, Observer {

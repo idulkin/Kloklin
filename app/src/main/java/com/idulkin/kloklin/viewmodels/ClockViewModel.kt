@@ -64,6 +64,9 @@ class ClockViewModel : ViewModel() {
     var mediaPlayer: MediaPlayer? = null //Plays a beep at the end of an interval, set in fragment onCreate
 
     fun newProgram(newProgram: Program) {
+        if (newProgram.intervals.isEmpty())
+            return
+
         this.program = newProgram
         countDown.cancel()
         position = 0
@@ -97,7 +100,7 @@ class ClockViewModel : ViewModel() {
     }
 
     fun onPlayButtonClicked() {
-        if ((position == program.intervals.size - 1) && time.value == 0L) {
+        if ((position == program.intervals.lastIndex) && time.value == 0L) {
             //End of the program, reset
             newProgram(program)
         } else {

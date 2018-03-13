@@ -31,6 +31,7 @@ class EditFragment : Fragment() {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+        userVisibleHint = false
         return inflater.inflate(R.layout.fragment_edit, container, false) as View
     }
 
@@ -42,23 +43,15 @@ class EditFragment : Fragment() {
             intervals = model.programs.value!![model.editedProgram].intervals
         }
 
-        userVisibleHint = false
         interval_recycler.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         interval_recycler.adapter = IntervalRecyclerAdapter(intervals)
         interval_recycler.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
 
         add_interval_fab.setOnClickListener {
             model.programs.value!![model.editedProgram].intervals.add(Interval(5, "New"))
-            interval_recycler.adapter.notifyDataSetChanged()
+            interval_recycler.adapter.notifyItemChanged(model.programs.value!!.lastIndex)
         }
     }
-
-    override fun onStop() {
-        super.onStop()
-
-        model.updateProgram()
-    }
-
 
     override fun setUserVisibleHint(isVisibleToUser: Boolean) {
         super.setUserVisibleHint(isVisibleToUser)
